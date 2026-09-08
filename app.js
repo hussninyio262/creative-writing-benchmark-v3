@@ -271,8 +271,6 @@ const harnessBody = document.getElementById('harness-body');
 const harnessFade = document.getElementById('harness-fade');
 const backToTopBtn = document.getElementById('back-to-top-btn');
 const modelCountBadge = document.getElementById('model-count-badge');
-const exportMarkdownBtn = document.getElementById('export-markdown-btn');
-const shareLinkBtn = document.getElementById('share-link-btn');
 
 // Matchup DOM Elements
 const matchupSelectA = document.getElementById('matchup-model-a');
@@ -1136,63 +1134,6 @@ if (exportHarnessBtn) {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-    });
-}
-
-// Export Benchmark Leaderboard as Markdown
-if (exportMarkdownBtn) {
-    exportMarkdownBtn.addEventListener('click', async () => {
-        let md = `# AI Creative Writing Benchmark V3\n\n`;
-        md += `> **Note**: Astra coming very soon ;)\n\n`;
-        md += `| Rank | Model Name | Logic | Prose | Flexibility | Knowledge | Context Window | Notes |\n`;
-        md += `|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---|\n`;
-
-        modelsData.forEach(m => {
-            md += `| #${m.rank} | **${m.name}** | ${m.logic} | ${m.prose} | ${m.flexibility} | ${m.knowledge} | ${m.context} | ${m.desc} |\n`;
-        });
-
-        try {
-            await navigator.clipboard.writeText(md);
-            const originalHTML = exportMarkdownBtn.innerHTML;
-            exportMarkdownBtn.classList.add('copied');
-            exportMarkdownBtn.innerHTML = `<span>Copied Table!</span>`;
-            setTimeout(() => {
-                exportMarkdownBtn.classList.remove('copied');
-                exportMarkdownBtn.innerHTML = originalHTML;
-            }, 2000);
-        } catch (err) {
-            console.error('Failed to copy markdown: ', err);
-        }
-    });
-}
-
-// Share Link
-if (shareLinkBtn) {
-    shareLinkBtn.addEventListener('click', async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: 'AI Creative Writing Benchmark V3',
-                    text: 'AI Creative Writing Benchmark V3',
-                    url: window.location.href
-                });
-            } catch (err) {
-                console.log('Share dismissed');
-            }
-        } else {
-            try {
-                await navigator.clipboard.writeText(window.location.href);
-                const originalHTML = shareLinkBtn.innerHTML;
-                shareLinkBtn.classList.add('copied');
-                shareLinkBtn.innerHTML = `<span>Link Copied!</span>`;
-                setTimeout(() => {
-                    shareLinkBtn.classList.remove('copied');
-                    shareLinkBtn.innerHTML = originalHTML;
-                }, 2000);
-            } catch (err) {
-                console.error('Failed to copy link: ', err);
-            }
-        }
     });
 }
 
