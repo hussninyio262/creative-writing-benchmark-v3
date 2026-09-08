@@ -25,7 +25,7 @@ const modelsData = [
         name: "Kimi k3",
         logic: 500,
         prose: 400,
-        flexibility: 400,
+        flexibility: 250,
         knowledge: 420,
         context: "256k (1M API)",
         desc: "Number one in logic, decent at prose. Heavy CoT reasoning tax."
@@ -176,58 +176,65 @@ function getBrandLogoInfo(modelName) {
     if (name.includes('gemini')) {
         return {
             letter: 'G',
-            bg: 'linear-gradient(135deg, #1a73e8, #8ab4f8)',
-            color: '#ffffff',
-            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEyIDI0QzEyIDE3LjM3MyA2LjYyNyAxMiAwIDEyQzYuNjI3IDEyIDEyIDYuNjI3IDEyIDBDMTIgNi42MjcgMTcuMzczIDEyIDI0IDEyQzE3LjM3MyAxMiAxMiAxNy4zNzMgMTIgMjRaIiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+'
+            bg: 'rgba(49, 134, 255, 0.15)',
+            color: '#3186ff',
+            img: 'assets/logos/gemini-color.svg'
         };
     } else if (name.includes('chatgpt') || name.includes('gpt')) {
         return {
             letter: 'O',
             bg: 'linear-gradient(135deg, #10a37f, #0d8a6a)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMi4yOCA5LjgyYTUuOTggNS45OCAwIDAgMC0uNTEtNC45MSA2LjA1IDYuMDUgMCAwIDAtNi41MS0yLjlBNi4wNiA2LjA2IDAgMCAwIDQuOTggNC4xOGE1Ljk4IDUuOTggMCAwIDAtNCAyLjkgNi4wNSA2LjA1IDAgMCAwIC43NSA3LjEgNS45OCA1Ljk4IDAgMCAwIC41MSA0LjkxIDYuMDUgNi4wNSAwIDAgMCA2LjUxIDIuOUE1Ljk4IDUuOTggMCAwIDAgMTMuMjYgMjRhNi4wNiA2LjA2IDAgMCAwIDUuNzctNC4yIDUuOTkgNS45OSAwIDAgMCA0LTIuOSA2LjA2IDYuMDYgMCAwIDAtLjc1LTcuMDh6bS05LjAyIDEyLjYxYTQuNDggNC40OCAwIDAgMS0yLjg4LTEuMDRsLjE0LS4wOCA0Ljc4LTIuNzZhLjc5Ljc5IDAgMCAwIC4zOS0uNjh2LTYuNzRsMi4wMiAxLjE3YS4wNy4wNyAwIDAgMSAuMDQuMDV2NS41OWE0LjUgNC41IDAgMCAxLTQuNDkgNC40OXptLTkuNjYtNC4xM2E0LjQ3IDQuNDcgMCAwIDEtLjUzLTMuMDFsLjE0LjA4IDQuNzggMi43NmEuNzcuNzcgMCAwIDAgLjc4IDBsNS44NS0zLjM3djIuMzNhLjA4LjA4IDAgMCAxLS4wNC4wNkw5Ljc0IDE5Ljk1YTQuNSA0LjUgMCAwIDEtNi4xNC0xLjY1ek0yLjM0IDcuOWE0LjQ4IDQuNDggMCAwIDEgMi4zNy0xLjk4djUuNjlhLjc3Ljc3IDAgMCAwIC4zOC42N2w1LjgyIDMuMzYtMi4wMiAxLjE3YS4wOC4wOCAwIDAgMS0uMDcgMGwtNC44My0yLjc5QTQuNSA0LjUgMCAwIDEgMi4zNCA3Ljg3em0xNi42IDMuODVMMTMuMSA4LjM2bDIuMDItMS4xNmEuMDguMDggMCAwIDEgLjA3IDBsNC44MyAyLjc5YTQuNDkgNC40OSAwIDAgMS0uNjggOC4xdi01LjY3YS43OS43OSAwIDAgMC0uNC0uNjd6bTIuMDEtMy4wMmwtLjE0LS4wOC00Ljc3LTIuNzlhLjc4Ljc4IDAgMCAwLS43OSAwTDkuNDEgOS4yM1Y2LjlhLjA3LjA3IDAgMCAxIC4wMy0uMDZsNC44My0yLjc5YTQuNSA0LjUgMCAwIDEgNi42OCA0LjY2ek04LjMxIDEyLjg2bC0yLjAyLTEuMTZhLjA4LjA4IDAgMCAxLS4wNC0uMDZWNi4wN2E0LjUgNC41IDAgMCAxIDcuMzgtMy40NWwtLjE1LjA4LTQuNzggMi43NmEuNzkuNzkgMCAwIDAtLjM5LjY4em0xLjEtMi4zNmwyLjYtMS41IDIuNiAxLjV2M2wtMi42IDEuNS0yLjYtMS41WiIvPjwvc3ZnPg=='
+            img: 'assets/logos/openai-white.svg'
         };
     } else if (name.includes('opus') || name.includes('sonnet') || name.includes('claude')) {
         return {
             letter: 'A',
-            bg: 'linear-gradient(135deg, #d97706, #b45309)',
-            color: '#ffffff',
-            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTEzLjggMy41TDguMiAxOS41SDExTDEyLjMgMTUuNkgxNy43TDE5IDE5LjVIMjEuOEwxNi4yIDMuNUgxMy44Wk0xMy4xIDEzLjFMMTUgNy40TDE2LjkgMTMuMUgxMy4xWk0yLjIgMTkuNUg1TDguNSA5LjVINS43TDIuMiAxOS41WiIvPjwvc3ZnPg=='
+            bg: 'rgba(217, 119, 87, 0.15)',
+            color: '#d97757',
+            img: 'assets/logos/claude-color.svg'
         };
     } else if (name.includes('deepseek')) {
         return {
             letter: 'D',
-            bg: 'linear-gradient(135deg, #0284c7, #0369a1)',
-            color: '#ffffff',
-            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMjUgNjUgQzMwIDQyIDQ4IDI4IDcyIDI4IEM5MCAyOCA5OCAzOCA5NiA1MiBDODggNDggNzggNDYgNjggNDggQzUyIDUwIDM4IDYyIDMwIDc2IEMyNiA3MyAyNCA3MCAxMiA2NSBaIiBmaWxsPSIjZmZmZmZmIi8+PGNpcmNsZSBjeD0iNDYiIGN5PSI0NiIgcj0iNSIgZmlsbD0iIzAyODRjNyIvPjxwYXRoIGQ9Ik0xOCA2OCBDMTAgNzQgNiA4MiA1IDkwIEMxNSA4OSAyNCA4MyAzMCA3NiBDMjUgNzMgMjEgNzAgMTggNjggWiIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg=='
+            bg: 'rgba(77, 107, 254, 0.15)',
+            color: '#4d6bfe',
+            img: 'assets/logos/deepseek-color.svg'
         };
     } else if (name.includes('kimi')) {
         return {
             letter: 'K',
-            bg: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
+            bg: 'linear-gradient(135deg, #1783ff, #0056b3)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMzAgMjAgaDE2IHYyNiBsMjItMjYgaDIwIEw2MiA1MCBsMjggMzAgSDY4IEw0NiA1NCB2MjYgSDMwIFYyMCB6IiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+'
+            img: 'assets/logos/kimi-color.svg'
         };
-    } else if (name.includes('glm') || name.includes('z ai') || name.includes('zhipu')) {
+    } else if (name.includes('z ai') || name.includes('zai')) {
         return {
             letter: 'Z',
-            bg: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
-            color: '#ffffff',
-            img: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAK4ElEQVR4nO2de0zV2RHH75OHrrrFijQhroppbS0otkZiJBoTtgY36B/QSjBaq2jAEIu22dal0aQRMTRAtBFMtMQ2bfhDUQiNUbFmNSRYqqRRUBuDxjfUF1Eel9+r+d79jf3tVROXe8C5Mp/kl8vVS5g7Z86cmXPmnONyCYIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIwJvH7/cHXmpqaPMuyLE3TBqwIxTRNQ9f1QCAQeDFnzpxofC+Px/Pqu7rdbpfP5wv+3N7eXoffMQxDs5hBMjU0NHzxTdvzq283RtF1fdDv948rKSlZ0tHREfB6vS7DMF79P97ruu46fPjw+nnz5v3MNE3d4/Gw0hlkwmtPT09nYWFh2Yj/wQ/FA6DnW5ZltbS01ERFRQUbGz2ewHuQlZWV4Pw8Nw9G+k9NTY0dTnv+39+NIaA7t9vt6e7uvlpQUPDLoaEh/FvwAWQIcXFx7gMHDjShl+HzLmZALp/PF1NaWvppe3v7AA1XI8qH4AGGhob68JqTk5OI7+JUnHPch3fgPu4jNomNjX3Ng4kBvAUy2Lq6uq1Ogw51/du3b/+x8/PcXD+MGE9aWtpHTrnFAN6x10ydOtWDiN/Za+h9SkpKzIsXLx7h81C2xQyKR9auXZs0qo0fyUMApXyDg4O9b+o1brc7+D46Otp19+7df3J1/dT4J06c+C0MNtxxn11gM5Ipn9frjaqsrPxpa2vrSxiyEZLy4X1VVVVuYmLiAnyeW8oHO8brgwcP2ouLi8sRtJpm8J9Gj0j0ACTjlStXjkP+UJfptd8vX7782+hheDi7/vT09ElOucNh2BYOBRmGMYSHY4oEIBfkw2QPJkry8vJyNU17bbYPTJkyxVNVVfUXeAmOaR88ElK+ysrKVRcuXOiFIeO7jDrkAWprazdYEUJXV9eXycnJMZDb2fiAxtDTp0+XcfVoFIt0dHQ0Tpo0ya0y5fvGHoAmS27cuNHR1tZ2BMJ5vd6v51KMJnvq6ur2Hzx48FJfX9+rcd7Z+LquuwoKCuZkZGR8rmlaP7yFixFfxa+mjmfr1q0/7+3ttfA9qB2EdyS059P7WbNm+R8/fvwfrikfTVrt378/B/KOymzfuwAXBCVyf6CwUHeJ9xjKoqKiXE1NTTu5zvWTTGfOnNlLMo/KbN+HDsUx5eXlnzl7GSfgjfDcu3fvX7Nnz46iDieECaVO2dnZiagDQNDH0fVTMLpixYp4Vq4/kqFelJCQ4Onp6bnGdbaPGh91CJAbQ5WgAOpFR48e/ZVT0Zwgg7xz507r5MmTlaZ8Yxpq/Nzc3E+4Nr5pr1e8fPmyG7OSo77Q86FCwRNcf3d3dwf3lK+kpGTxm5aqhWFA6VNMTIwLK2jcU762trY/w1tJ4yuCFLljx45FXFM+wzA0PJTyQV5J+RRA4+eqVau+QxU0FkOGbLny8vKmQ15J+RSmfPHx8Z5bt25d4J7yHTt27NeQW1y/IkiRhw4dWudUNMdx//Lly39Tvco3piEXmpmZOYVr45uOXUmLFy+eCHkl5VMABU/Y6oVVPq7VPZptlHv37s10Gq0QBlTTj6e5ubmcc8pnGIaGAg/ILa5fEdSLioqK5nJ1/c5gdP78+eOoGlkIE1JiRkbGZNo4wdn1FxUVzXXKLShI+SZOnOi+du3a3+2CVXYpn24PRydPnvw95A7dmCKE6fr37duXzdX1G/b6w82bN/8xYcIEN2SW2T4FkAtdsmTJx1A0xwIP097GjdelS5d+7JRbCAOq+5s2bZrv2bNntzk2vtMjsSvsjHSoF2FM5ZryGXYscvv27ZZx48a9sUhVCKPx8/PzZ3Md903b9ff19f13+vTpwW4v474CaOJkwYIF46HoSEn5fOL61aV8WOzp7OxsgoI5p3znzp2rfNv+BGGYvR9UVFSsdCqaE4YBz68N4JAJ7DySmv4RqOmHojkWeJiOSSgq7BTXrwC4URgAtnE/f/78DpVRWczQbY+ESSlpfIVQ9FxfX/+5U9Gc0O2l50uXLv3VKbOgyPVv2rTp+6Roi+lePsuyLNQikMcSFDQ+gigoNVTRnNBto4SROo1WUGAAAG6VyqgsZui2TBieIKu4fkVQ9Lxr166lXGf7DDsYRWCKABUGKwagsOcvW7bsW/39/U+4b+fKzs4OHjsrrl8BGPPxYFv0w4cP/w0Fc075KioqVkrjKy7sxOvZs2f/4FQ0JwzbIDEdjWlpqe5RBLlQKuzk2PimXXOIn7EgJYWdiqDgaebMmX4soXIv8MjPz5/tNFohTMiVnj9//o9ce78eUtgpja94L19xcfF8zgs9mqYNPHny5CbK0GSVTxHUi1Aw2dvbe4/rdq5AIPACrxs2bPgu5JVVPoVRP3bHomSaa8qnSWHnyEBHoFFNP0fXb9iTUNevXz+JzSc0TyGECbnQjRs3fo+qaCxmmI5tZth2Bnkl8FMATZwkJSX5nz592sV1lU+Tws6RO7kLNDY2ljgVzTHla25uLqdt5+L6Fbp+HI7AtfFNe+kZh0y86V5hYZjQ+IljUSLhsObMzMwpTqMVwoDmzJHy4WAkrrN9mt34OGAKcsvJXYogReJINKeiOWHYcxA4Wg5HzMkqnyLIheIwRK75PhklZMPhkpBXUj4FUPCEY1BxHCrXmv4h2yhxrCzkFdevCEqhcBAy13Fft2VqbW09jIOl5X4eRVAvwhHo3LdzdXd3d6SmpsZCXkn5FEDj59y5c2NxCQL3lC83N/cTyCspn8KUD9eeXLx48U9QMMdxX7MbH9fIQG4Z9xWv8uHiI6eiOWHYBokLpHCbiKR8iiAXiivPOI/7un1Ys9T0j2DKx3WVj4yyvLz8M8grrl/xYc247pR7ytfZ2dmEoept18vSYY7cHzYrlNSLtmzZkszZ9WPsxypf6ltSvrGUAiozHSjNNM1ggcfVq1d7cA27x+NB5Swrbeq6Pujz+WIKCwt/WF1d3UFXyId+j/Hjx7s2b978o9WrVxfRVfQuZsCQvV6vv76+vqasrKw19LuMGlQejVU+zKRxT/lOnTpV+qZ832P3/OTk5Jiurq4vrQihtrZ2w3DjGCWL3FCkpmmunTt3Zi1cuPAX1MtcjEAvhkwDAwNP169f/zsYrWmar/X8GTNm+Jqbmy/Fx8f/QNO0fq/XG4XfdTGE9DwwMND33mf70tPTJ3HN9ynlw0MpX+g477Mva2xoaPiCa/wSCum6pqYm771kMhSBotfcv3//MtcNHaSo6urqXKfREjQU7Nmz5yeR0vgsDIDSJM5XstLSMw5rjo6Ofu1+Hq9tDGlpaR8NDg72cj12dqQMYNiRLRSHiHPNmjVJK1euLDUMYwjjpYsZGAGQjaxbt25FIBDA++AD3G538OfY2FhXdXX1oejo6In4DhwjflY4ew1dycqx11APoQKPUNfvt3tMaWnpp1w9GLshgFb50Gva29vruKZ8JFNLS0sN5A6dMaNxPycnh+2xsywNgBS3e/fuDK69xnkbd1xc3GtXslIGkJKSEvPo0aMrXINXtkEg7rsjATgqjowyKysrIdT1kwfDGkBLS0uN8/ORxnsJAvFHjhw5gkMbdQRL3AImyIVADrNjjY2Nj+CxDMP4Wu/H+23btqUtWrRoM032vFehI4njx4//huu4T0vPqO0j1++c8HHeK4w6AD1CXT+beQBBEARBEARBEARBEARBEARBEARBEARBEARBEARBENjwP+lG+Z69THq2AAAAAElFTkSuQmCC'
+            bg: 'rgba(52, 133, 255, 0.15)',
+            color: '#3485ff',
+            img: 'assets/logos/zai-color.svg'
+        };
+    } else if (name.includes('glm') || name.includes('zhipu')) {
+        return {
+            letter: 'Z',
+            bg: 'rgba(52, 133, 255, 0.15)',
+            color: '#3485ff',
+            img: 'assets/logos/chatglm-color.svg'
         };
     } else if (name.includes('qwen')) {
         return {
             letter: 'Q',
-            bg: 'linear-gradient(135deg, #ea580c, #c2410c)',
-            color: '#ffffff',
-            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cG9seWdvbiBwb2ludHM9IjUwLDEyIDg2LDMyIDg2LDcyIDUwLDkyIDE0LDcyIDE0LDMyIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTIiIHI9IjE1IiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+'
+            bg: 'rgba(111, 105, 247, 0.15)',
+            color: '#6f69f7',
+            img: 'assets/logos/qwen-color.svg'
         };
     } else if (name.includes('muse')) {
         return {
             letter: 'M',
-            bg: 'linear-gradient(135deg, #db2777, #be185d)',
-            color: '#ffffff',
-            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMjIgNzggVjI0IEw1MCA1NiBMNzggMjQgVjc4IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg=='
+            bg: 'rgba(0, 130, 251, 0.15)',
+            color: '#0082fb',
+            img: 'assets/logos/meta-color.svg'
         };
     }
     return {
@@ -755,12 +762,6 @@ function openModelModal(model) {
         ? `<div class="card-brand-logo" style="background: ${brand.bg};"><img src="${brand.img}" alt="${model.name} logo" class="brand-logo-img"></div>`
         : `<div class="card-brand-logo" style="background: ${brand.bg};"><span class="brand-logo-letter">${brand.letter}</span></div>`;
 
-    // Multipliers relative to Sol baseline
-    const logicMult = (model.logic / BASES.logic).toFixed(1);
-    const proseMult = (model.prose / BASES.prose).toFixed(1);
-    const flexMult = (model.flexibility / BASES.flexibility).toFixed(1);
-    const knowledgeMult = (model.knowledge / BASES.knowledge).toFixed(1);
-
     // Dynamic Quirk Callout
     let quirkCallout = '';
     if (model.name.includes('ChatGPT')) {
@@ -793,12 +794,12 @@ function openModelModal(model) {
         `;
     }
 
-    const maxLogic = Math.max(500, ...modelsData.map(m => m.logic));
-    const maxProse = Math.max(500, ...modelsData.map(m => m.prose));
-    const maxFlex = Math.max(500, ...modelsData.map(m => m.flexibility));
-    const maxKnowledge = Math.max(500, ...modelsData.map(m => m.knowledge));
+        const maxLogic = Math.max(500, ...modelsData.map(m => m.logic));
+        const maxProse = Math.max(500, ...modelsData.map(m => m.prose));
+        const maxFlex = Math.max(500, ...modelsData.map(m => m.flexibility));
+        const maxKnowledge = Math.max(500, ...modelsData.map(m => m.knowledge));
 
-    modalContent.innerHTML = `
+        modalContent.innerHTML = `
         <div class="modal-header-section">
             <div class="modal-rank-badge">#${model.rank}</div>
             <div class="modal-title-area">
@@ -816,22 +817,22 @@ function openModelModal(model) {
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.logic}</div>
                 <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.logic / maxLogic) * 100}%;"></div></div>
-                <div class="modal-score-label">Logic (${logicMult}x Sol)</div>
+                <div class="modal-score-label">Logic</div>
             </div>
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.prose}</div>
                 <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.prose / maxProse) * 100}%;"></div></div>
-                <div class="modal-score-label">Prose (${proseMult}x Sol)</div>
+                <div class="modal-score-label">Prose</div>
             </div>
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.flexibility}</div>
                 <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.flexibility / maxFlex) * 100}%;"></div></div>
-                <div class="modal-score-label">Flex (${flexMult}x Sol)</div>
+                <div class="modal-score-label">Flex</div>
             </div>
             <div class="modal-score-box">
                 <div class="modal-score-num" style="color: #34d399;">${model.knowledge}</div>
                 <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.knowledge / maxKnowledge) * 100}%; background: linear-gradient(90deg, #34d399, #059669);"></div></div>
-                <div class="modal-score-label">Knowledge (${knowledgeMult}x Sol)</div>
+                <div class="modal-score-label">Knowledge</div>
             </div>
         </div>
 
@@ -1089,6 +1090,7 @@ document.addEventListener('click', (e) => {
 // Chart Dimension Tab Switcher
 function initChartDimensionTabs() {
     const tabBtns = document.querySelectorAll('.chart-tab-btn');
+    const chartsGrid = document.querySelector('.benchmark-charts-grid');
     const cards = {
         logic: document.getElementById('card-chart-logic'),
         prose: document.getElementById('card-chart-prose'),
@@ -1103,13 +1105,27 @@ function initChartDimensionTabs() {
 
             const targetChart = btn.getAttribute('data-chart');
             if (targetChart === 'all') {
+                if (chartsGrid) chartsGrid.classList.remove('single-view');
                 Object.values(cards).forEach(card => {
-                    if (card) card.style.display = 'flex';
+                    if (card) {
+                        card.style.display = 'flex';
+                        card.style.animation = 'none';
+                        void card.offsetHeight;
+                        card.style.animation = '';
+                    }
                 });
             } else {
+                if (chartsGrid) chartsGrid.classList.add('single-view');
                 Object.entries(cards).forEach(([key, card]) => {
                     if (card) {
-                        card.style.display = (key === targetChart) ? 'flex' : 'none';
+                        if (key === targetChart) {
+                            card.style.display = 'flex';
+                            card.style.animation = 'none';
+                            void card.offsetHeight;
+                            card.style.animation = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
                     }
                 });
             }
