@@ -336,7 +336,8 @@ function renderLeaderboard() {
     } else {
         noResultsCard.style.display = 'none';
         
-        let displayRank = 1;
+        let currentRank = 0;
+        let lastScore = null;
         filtered.forEach((model, index) => {
             const card = document.createElement('div');
             card.className = 'model-card glass-card';
@@ -346,12 +347,14 @@ function renderLeaderboard() {
             if (currentSort === 'rank') {
                 categoryRank = index + 1;
             } else {
-                if (index > 0 && model[currentSort] === filtered[index - 1][currentSort]) {
-                    categoryRank = displayRank;
-                } else {
-                    displayRank = index + 1;
-                    categoryRank = displayRank;
+                if (index === 0) {
+                    currentRank = 1;
+                    lastScore = model[currentSort];
+                } else if (model[currentSort] !== lastScore) {
+                    currentRank++;
+                    lastScore = model[currentSort];
                 }
+                categoryRank = currentRank;
             }
 
             let rankClass = '';
@@ -472,7 +475,8 @@ function renderComparativeCharts() {
 // Helper to construct Side-by-Side Horizontal Bar Chart (Clean, No-Rotated Text)
 function buildChartHTML(dataList, metricKey, maxValue, themeColor, gradientBg) {
     const baseValue = BASES[metricKey];
-    let displayRank = 1;
+    let currentRank = 0;
+    let lastScore = null;
 
     return `
         <div class="horizontal-bars-list">
@@ -482,13 +486,14 @@ function buildChartHTML(dataList, metricKey, maxValue, themeColor, gradientBg) {
                 const multiplier = (val / baseValue).toFixed(1);
                 const brand = getBrandLogoInfo(model.name);
 
-                let barRank;
-                if (idx > 0 && val === dataList[idx - 1][metricKey]) {
-                    barRank = displayRank;
-                } else {
-                    displayRank = idx + 1;
-                    barRank = displayRank;
+                if (idx === 0) {
+                    currentRank = 1;
+                    lastScore = val;
+                } else if (val !== lastScore) {
+                    currentRank++;
+                    lastScore = val;
                 }
+                const barRank = currentRank;
 
                 const iconHTML = brand.img
                     ? `<img src="${brand.img}" alt="${model.name}" class="brand-logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${brand.letter}'">`
