@@ -1,4 +1,4 @@
-# AI Creative Writing Benchmark Beta V3
+# AI Creative Writing Benchmark V3
 
 > **Note**: Astra coming very soon ;)
 

@@ -993,7 +993,7 @@ if (exportHarnessBtn) {
 // Export Benchmark Leaderboard as Markdown
 if (exportMarkdownBtn) {
     exportMarkdownBtn.addEventListener('click', async () => {
-        let md = `# AI Creative Writing Benchmark Beta V3\n\n`;
+        let md = `# AI Creative Writing Benchmark V3\n\n`;
         md += `> **Note**: Astra coming very soon ;)\n\n`;
         md += `| Rank | Model Name | Logic | Prose | Flexibility | Knowledge | Context Window | Notes |\n`;
         md += `|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---|\n`;
@@ -1023,8 +1023,8 @@ if (shareLinkBtn) {
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: 'AI Creative Writing Benchmark Beta V3',
-                    text: 'AI Creative Writing Benchmark Beta V3',
+                    title: 'AI Creative Writing Benchmark V3',
+                    text: 'AI Creative Writing Benchmark V3',
                     url: window.location.href
                 });
             } catch (err) {
