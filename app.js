@@ -35,20 +35,20 @@ const modelsData = [
         name: "Kimi k3",
         logic: 500,
         prose: 400,
-        flexibility: 250,
+        flexibility: 180,
         knowledge: 420,
         context: "256k (1M API)",
-        desc: "High logic, decent at prose. Heavy CoT reasoning tax."
+        desc: "High logic, decent at prose. Heavy CoT reasoning tax and tightly constrained content flexibility."
     },
     {
         rank: 5,
         name: "GLM 5.3",
         logic: 510,
         prose: 360,
-        flexibility: 420,
+        flexibility: 240,
         knowledge: 380,
         context: "200k (1M API)",
-        desc: "Better in logic than Kimi by a little, worse at prose than Kimi (meh), and solid flexibility."
+        desc: "Better in logic than Kimi by a little, worse at prose than Kimi (meh). Moderate flexibility, though still more versatile than Kimi."
     },
     {
         rank: 6,

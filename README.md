@@ -28,8 +28,8 @@ Live Public Site: [https://hussninyio262.github.io/creative-writing-benchmark-v3
 | #1 | **Gemini 3.8 Flash** | 420 | 480 | 500 | 470 | 1M | Better in logic than 3.1 Pro, superior flexibility and top-tier prose quality. Lower raw knowledge than 3.1 Pro due to smaller model scale, but boasts significantly improved canon recall and lore retention over 3.7 Flash. |
 | #2 | **Gemini 3.1 Pro** | 405 | 470 | 480 | 500 | 1M | Unmatched deep canon knowledge recall and top-tier prose. Resists earned character development, slight instruction-following drift. |
 | #3 | **Gemini 3.7 Flash** | 390 | 430 | 490 | 420 | 1M | High flexibility and concise, punchy prose. Lower canon recall and knowledge retention than 3.8 Flash, but very resistant to sycophancy. |
-| #4 | **Kimi k3** | 500 | 400 | 250 | 420 | 256k (1M API) | High logic, decent at prose. Heavy CoT reasoning tax. |
-| #5 | **GLM 5.3** | 510 | 360 | 420 | 380 | 200k (1M API) | Better in logic than Kimi by a little, worse at prose than Kimi (meh), and solid flexibility. |
+| #4 | **Kimi k3** | 500 | 400 | 180 | 420 | 256k (1M API) | High logic, decent at prose. Heavy CoT reasoning tax and tightly constrained content flexibility. |
+| #5 | **GLM 5.3** | 510 | 360 | 240 | 380 | 200k (1M API) | Better in logic than Kimi by a little, worse at prose than Kimi (meh). Moderate flexibility, though still more versatile than Kimi. |
 | #6 | **Opus 4.8** | 480 | 380 | 350 | 350 | 200k (1M API) | Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic. |
 | #7 | **Opus 4.6** | 460 | 400 | 350 | 340 | 200k (1M API) | Decent logic, slightly better than 4.8 in prose. |
 | #8 | **Gemini 3 Flash** | 320 | 420 | 450 | 400 | 1M | Very flexible. Amazing lightweight model. |
