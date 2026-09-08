@@ -27,7 +27,7 @@ Live Public Site: [https://hussninyio262.github.io/creative-writing-benchmark-v3
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---|
 | #1 | **Gemini 3.1 Pro** | 405 | 470 | 480 | 500 | 1M | Absolute best at prose, canon knowledge recall, and content flexibility. Resists earned character development, slight instruction-following drift. |
 | #2 | **Gemini 3.7 Flash** | 390 | 430 | 490 | 480 | 1M | Slightly weaker logic than 3.1 Pro, but the flexibility champion. More concise, resistant to sycophancy, with rapid punchy prose. |
-| #3 | **Kimi k3** | 500 | 400 | 400 | 420 | 256k (1M API) | Number one in logic, decent at prose. Heavy CoT reasoning tax. |
+| #3 | **Kimi k3** | 500 | 400 | 250 | 420 | 256k (1M API) | Number one in logic, decent at prose. Heavy CoT reasoning tax. |
 | #4 | **GLM 5.3** | 510 | 360 | 420 | 380 | 200k (1M API) | Better in logic than Kimi by a little, worse at prose than Kimi (meh), and solid flexibility. |
 | #5 | **Opus 4.8** | 480 | 380 | 350 | 350 | 200k (1M API) | Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic. |
 | #6 | **Opus 4.6** | 460 | 400 | 350 | 340 | 200k (1M API) | Decent logic, slightly better than 4.8 in prose. |
