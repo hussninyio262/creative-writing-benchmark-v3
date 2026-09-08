@@ -168,7 +168,7 @@ const modelsData = [
         flexibility: 100,
         knowledge: 200,
         context: "256k (1M API)",
-        desc: "Top needle retrieval accuracy, but severe 92% creative hallucination rate."
+        desc: "Exceptional needle retrieval accuracy (second to Gemini 3.8 Flash), but severe 92% creative hallucination rate."
     }
 ];
 

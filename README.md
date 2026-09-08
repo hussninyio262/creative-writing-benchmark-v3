@@ -41,7 +41,7 @@ Creative writing evaluation across 17 frontier and open-weights AI models tested
 | #14 | **Muse Spark 1.1** | 360 | 300 | 330 | 290 | 1M | Well-balanced overall baseline. |
 | #15 | **Sonnet 4.6** | 350 | 320 | 300 | 320 | 200k (1M API) | Good general benchmark baseline, stiffer narrative prose. |
 | #16 | **Qwen 3.8 Max** | 200 | 350 | 150 | 250 | 1M | Capable prose styling, constrained flexibility. |
-| #17 | **ChatGPT 5.6 Sol Max** | 50 | 250 | 100 | 200 | 256k (1M API) | Top needle retrieval accuracy, but severe creative hallucination rate (92%). |
+| #17 | **ChatGPT 5.6 Sol Max** | 50 | 250 | 100 | 200 | 256k (1M API) | Exceptional needle retrieval accuracy (second to Gemini 3.8 Flash), but severe creative hallucination rate (92%). |
 
 ---
 
