@@ -58,20 +58,24 @@ section[id], .quirk-card[id], .glass-card[id] {
     box-shadow: 0 0 12px rgba(255, 46, 147, 0.7);
 }
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
-    zoom: 0.8;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.6;
-    overflow-x: hidden;
     position: relative;
     min-height: 100vh;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1025px) {
     body {
-        zoom: 1;
+        zoom: 0.8;
     }
 }
 
@@ -2256,6 +2260,7 @@ footer {
     }
     .search-box {
         min-width: 100%;
+        width: 100%;
     }
     .header-right {
         width: 100%;
@@ -2263,31 +2268,375 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* Base Container */
+    .container {
+        padding: 1.5rem 0.85rem;
+        gap: 2rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* Header */
+    .glass-header {
+        padding: 2.5rem 1rem 1.75rem 1rem;
+    }
+    .header-content h1 {
+        font-size: 1.85rem;
+        line-height: 1.2;
+    }
+    .subtitle {
+        font-size: 0.92rem;
+    }
+    .quick-nav-bar {
+        gap: 0.4rem;
+        margin-top: 1.25rem;
+    }
+    .nav-pill {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.76rem;
+    }
+
+    /* Notice Banner */
+    .important-notice-banner {
+        padding: 0.85rem 1rem;
+        gap: 0.6rem;
+    }
+
+    /* Controls & Toolbar */
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    .controls-toolbar {
+        padding: 0.85rem;
+        gap: 0.85rem;
+        border-radius: 12px;
+    }
+    .sort-controls, .filter-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        width: 100%;
+    }
+    .control-label {
+        font-size: 0.75rem;
+    }
+    .btn-group, .filter-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        width: 100%;
+    }
+    .sort-btn, .filter-pill {
+        padding: 0.38rem 0.7rem;
+        font-size: 0.78rem;
+        border-radius: 8px;
+    }
+
+    /* Leaderboard Model Cards */
     .model-card {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        padding: 1rem 0.85rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        border-radius: 14px;
+    }
+    .model-card:hover {
+        transform: none;
     }
     .model-rank-wrapper {
+        display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
         width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.5rem;
     }
     .model-rank {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
+        line-height: 1;
     }
-    .model-metrics {
-        justify-content: space-between;
+    .rank-medal {
+        font-size: 0.72rem;
+        margin-top: 0;
+    }
+    .overall-rank-badge {
+        font-size: 0.68rem;
+        margin-top: 0;
+        padding: 0.15rem 0.4rem;
+    }
+    .model-info {
+        width: 100%;
+        min-width: 0;
+    }
+    .model-header-line {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .model-header-line h3 {
+        font-size: 1.12rem;
+    }
+    .card-brand-logo {
+        width: 32px;
+        height: 32px;
+        padding: 3px;
+    }
+    .context-tag {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.45rem;
+    }
+    .model-desc {
+        font-size: 0.84rem;
+        line-height: 1.45;
+        margin-top: 0.35rem;
         width: 100%;
     }
+    .model-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.35rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
     .metric {
-        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.45rem 0.15rem;
+        border-radius: 10px;
         min-width: 0;
-        padding: 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .metric-val {
+        font-size: 1.15rem;
+        font-weight: 800;
+        margin-bottom: 0.15rem;
+        letter-spacing: -0.5px;
+        line-height: 1;
+    }
+    .metric-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.4px;
+        font-weight: 700;
+    }
+
+    /* Comparative Horizontal Bar Charts */
+    .benchmark-charts-section {
+        width: 100%;
+        max-width: 100%;
+    }
+    .benchmark-charts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        width: 100%;
+    }
+    .chart-card {
+        padding: 1.15rem 0.75rem 1.75rem 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 14px;
+        box-sizing: border-box;
+    }
+    .chart-header {
+        margin-bottom: 0.85rem;
+        padding-bottom: 0.4rem;
+    }
+    .chart-title-line h3 {
+        font-size: 1.1rem;
+    }
+    .chart-dimension-tabs {
+        gap: 0.35rem;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.4rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .chart-dimension-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    .chart-tab-btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .horizontal-bars-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        width: 100%;
+        max-width: 100%;
+    }
+    .h-bar-row {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem 0.4rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        min-height: 34px;
+    }
+    .h-bar-row:hover {
+        transform: none;
+    }
+    .h-bar-rank {
+        width: 18px;
+        font-size: 0.72rem;
+        flex-shrink: 0;
+    }
+    .h-bar-brand-icon {
+        width: 22px;
+        height: 22px;
+        padding: 2px;
+        flex-shrink: 0;
+    }
+    .h-bar-name {
+        font-size: 0.76rem;
+        width: 82px;
+        max-width: 82px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 0;
+    }
+    .h-bar-track {
+        flex: 1;
+        min-width: 35px;
+        height: 8px;
+        border-radius: 4px;
+    }
+    .h-bar-val {
+        font-size: 0.76rem;
+        width: 28px;
+        text-align: right;
+        flex-shrink: 0;
+    }
+
+    /* Head-to-Head Matchup */
+    .matchup-section {
+        padding: 1.25rem 0.85rem;
+        border-radius: 14px;
+    }
+    .matchup-select-row {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
+    }
+    .matchup-select-group {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    .matchup-vs-circle {
+        margin: 0 auto;
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+    .matchup-results-container {
+        padding: 1rem 0.75rem;
+        border-radius: 14px;
+    }
+    .matchup-cards-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .matchup-model-box {
+        padding: 1rem 0.85rem;
+    }
+    .matchup-delta-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    /* Quirks & Caveats */
+    .quirks-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .quirk-card {
+        padding: 1.25rem 1rem;
+    }
+
+    /* System Harness */
+    .harness-section {
+        padding: 1.25rem 0.85rem;
+    }
+    .harness-body {
+        padding: 1rem 0.85rem;
+        font-size: 0.8rem;
+        word-break: break-word;
+    }
+    .harness-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    .harness-actions {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+    }
+    .copy-btn, .expand-btn {
+        flex: 1;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.78rem;
+    }
+
+    /* Methodology */
+    .methodology-card {
+        padding: 1.25rem 1rem;
+    }
+
+    /* Modal Popup */
+    .model-modal-backdrop {
+        padding: 0.6rem;
+    }
+    .modal-card {
+        padding: 1.25rem 1rem;
+        max-height: 92vh;
+        width: 100%;
+        border-radius: 16px;
     }
     .modal-score-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem 0.5rem;
+    }
+    .model-card {
+        padding: 0.85rem 0.65rem;
+    }
+    .h-bar-name {
+        width: 68px;
+        max-width: 68px;
+        font-size: 0.72rem;
+    }
+    .matchup-delta-summary {
+        grid-template-columns: 1fr;
+    }
+    .metric-val {
+        font-size: 1.05rem;
+    }
+    .metric-label {
+        font-size: 0.58rem;
     }
 }
