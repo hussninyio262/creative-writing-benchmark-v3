@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Writing LLM Benchmark Beta V3</title>
-    <meta name="description" content="Creative writing benchmark evaluating LLMs on logic, prose, flexibility, and canon knowledge.">
+    <title>Creative Writing AI Benchmark Beta V3</title>
+    <meta name="description" content="Creative writing benchmark evaluating AI on logic, prose, flexibility, and canon knowledge.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=v9">
+    <link rel="stylesheet" href="style.css?v=v10">
     <style>
         body {
             zoom: 0.8;
@@ -26,7 +26,7 @@
     <header class="glass-header">
         <div class="header-content">
             <div class="header-badge">BENCHMARK BETA V3</div>
-            <h1>LLM Creative Writing Benchmark <span>Beta V3</span></h1>
+            <h1>AI Creative Writing Benchmark <span>Beta V3</span></h1>
             <p class="subtitle">Prose, Logic, Flexibility, and Canon Recall across 17 Frontier & Open Models</p>
 
             <nav class="quick-nav-bar" id="quick-nav-bar" aria-label="Quick Section Navigation">
@@ -35,6 +35,7 @@
                 <a href="#leaderboard" class="nav-pill">Leaderboard</a>
                 <a href="#quirks" class="nav-pill nav-pill-highlight">Model Quirks</a>
                 <a href="#harness" class="nav-pill">System Harness</a>
+                <a href="#methodology" class="nav-pill">Methodology</a>
             </nav>
         </div>
     </header>
@@ -46,58 +47,7 @@
             <p class="notice-text">Astra coming very soon ;)</p>
         </div>
 
-        <!-- 1. Methodology Section -->
-        <section class="methodology-card glass-card fade-in" id="methodology">
-            <div class="section-title-wrapper">
-                <h2>Methodology</h2>
-            </div>
-            <div class="methodology-content">
-                <div class="stat-group">
-                    <div class="stat-box">
-                        <span class="stat-number" data-target="600">0</span>
-                        <span class="stat-label">Total Tests</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-number" data-target="12">0</span>
-                        <span class="stat-label">Genres</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-number" data-target="150">0</span>
-                        <span class="stat-label">Unique samples</span>
-                        <span class="stat-sublabel">(50 per primary genre)</span>
-                    </div>
-                </div>
-                <div class="description">
-                    <p>Evaluates models on <strong>character consistency</strong> (voice, personality, behavior), <strong>logic</strong> (causal continuity, spatial awareness, long-horizon coherence), and <strong>prose quality</strong> (subtext, pacing, dialogue, and avoiding clichés).</p>
-                    <p>Models are also tested on <strong>canon lore recall</strong> (accurate IP knowledge and backstory retention), <strong>constraint adherence</strong> (following negative rules without drifting), <strong>sycophancy resistance</strong>, and how well they handle dark, complex, or mature themes without preachiness or forced moralizing.</p>
-                    <p>Tested across 600 runs covering 12 narrative genres using the standardized system prompt harness below.</p>
-                </div>
-
-                <!-- Tested Genres Display -->
-                <div class="genres-container">
-                    <div class="genres-header">
-                        <span class="genres-title">Evaluated Narrative Genres:</span>
-                        <span class="genres-note">(Sorry, no horror. I have no templates that I have made for it.)</span>
-                    </div>
-                    <div class="genres-grid">
-                        <span class="genre-pill">Romance</span>
-                        <span class="genre-pill">Action</span>
-                        <span class="genre-pill">Adventure</span>
-                        <span class="genre-pill">Hard Sci-Fi</span>
-                        <span class="genre-pill">Hard Fantasy</span>
-                        <span class="genre-pill">Isekai</span>
-                        <span class="genre-pill">Mystery</span>
-                        <span class="genre-pill">Comedy</span>
-                        <span class="genre-pill">Slice of Life</span>
-                        <span class="genre-pill">Thriller</span>
-                        <span class="genre-pill">Drama</span>
-                        <span class="genre-pill">Psychological Terror / Thriller</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. Visual Benchmark Charts Section (Artificial Analysis Style) -->
+        <!-- 1. Visual Benchmark Charts Section -->
         <section class="benchmark-charts-section fade-in" id="charts">
             <div class="section-title-wrapper">
                 <h2>Dimension Breakdown</h2>
@@ -351,7 +301,7 @@
             </div>
         </section>
 
-        <!-- 6. System Instruction Harness Section (Positioned at End) -->
+        <!-- 5. System Instruction Harness Section -->
         <section class="harness-section fade-in" id="harness">
             <div class="section-title-wrapper">
                 <h2>System Instruction Harness</h2>
@@ -405,6 +355,57 @@
                 </div>
             </div>
         </section>
+
+        <!-- 6. Methodology Section -->
+        <section class="methodology-card glass-card fade-in" id="methodology">
+            <div class="section-title-wrapper">
+                <h2>Methodology</h2>
+            </div>
+            <div class="methodology-content">
+                <div class="stat-group">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="600">0</span>
+                        <span class="stat-label">Total Tests</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="12">0</span>
+                        <span class="stat-label">Genres</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-label">Unique samples</span>
+                        <span class="stat-sublabel">(50 per primary genre)</span>
+                    </div>
+                </div>
+                <div class="description">
+                    <p>The testing methodology is massive, as demonstrated by the sample size, designed to rigorously evaluate <strong>character adherence</strong> (personality, ideals, voice, and internal consistency), <strong>abstract creativity</strong>, <strong>short and long-horizon logic</strong>, and the sheer quality of the <strong>prose</strong>. Going far beyond surface-level generation, it explicitly tests for <strong>emotional intelligence (EQ) and subtext</strong> (show, don't tell), <strong>narrative pacing</strong>, <strong>spatial and temporal awareness</strong> within scenes, and the ability to juggle <strong>complex multi-character dynamics</strong> without reducing them to a hivemind.</p>
+                    <p>Furthermore, it scrutinizes <strong>consistent world-building & canon knowledge recall</strong> (ensuring accurate IP lore, character backstory persistence, and zero continuity errors), <strong>strict adherence to negative constraints</strong>, <strong>resistance to sycophancy</strong>, and how well a model extrapolates complex scenarios while remaining logically grounded—heavily penalizing <strong>clichés, repetitive formatting, and forced, moralizing resolutions</strong>.</p>
+                    <p>Evaluations encompass 150 unique scenarios across 3 primary genres (50 each, 150 tests), alongside 3 iterations across 50 scenarios spanning the remaining 9 genres (450 tests), establishing a total of <strong>600 evaluation runs</strong> across the benchmark. All models are evaluated using a strict, standardized <strong>System Instruction Harness</strong> at default temperature settings.</p>
+                </div>
+
+                <!-- Tested Genres Display -->
+                <div class="genres-container">
+                    <div class="genres-header">
+                        <span class="genres-title">Evaluated Narrative Genres:</span>
+                        <span class="genres-note">(Sorry, no horror. I have no templates that I have made for it.)</span>
+                    </div>
+                    <div class="genres-grid">
+                        <span class="genre-pill">Romance</span>
+                        <span class="genre-pill">Action</span>
+                        <span class="genre-pill">Adventure</span>
+                        <span class="genre-pill">Hard Sci-Fi</span>
+                        <span class="genre-pill">Hard Fantasy</span>
+                        <span class="genre-pill">Isekai</span>
+                        <span class="genre-pill">Mystery</span>
+                        <span class="genre-pill">Comedy</span>
+                        <span class="genre-pill">Slice of Life</span>
+                        <span class="genre-pill">Thriller</span>
+                        <span class="genre-pill">Drama</span>
+                        <span class="genre-pill">Psychological Terror / Thriller</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Model Details Modal -->
@@ -428,6 +429,6 @@
         </div>
     </footer>
 
-    <script src="app.js?v=v9"></script>
+    <script src="app.js?v=v10"></script>
 </body>
 </html>

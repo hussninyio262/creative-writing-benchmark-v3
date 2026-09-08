@@ -1,8 +1,8 @@
-# LLM Creative Writing Benchmark Beta V3
+# AI Creative Writing Benchmark Beta V3
 
 > **Note**: Astra coming very soon ;)
 
-Creative writing evaluation across 17 frontier and open-weights LLMs tested on narrative logic, prose quality, content flexibility, and canon knowledge recall.
+Creative writing evaluation across 17 frontier and open-weights AI models tested on narrative logic, prose quality, content flexibility, and canon knowledge recall.
 
 [Live Benchmark](https://hussninyio262.github.io/creative-writing-benchmark-v3/)
 
