@@ -336,12 +336,24 @@ function renderLeaderboard() {
     } else {
         noResultsCard.style.display = 'none';
         
+        let displayRank = 1;
         filtered.forEach((model, index) => {
             const card = document.createElement('div');
             card.className = 'model-card glass-card';
             card.id = `model-card-${model.rank}`;
 
-            const categoryRank = index + 1;
+            let categoryRank;
+            if (currentSort === 'rank') {
+                categoryRank = index + 1;
+            } else {
+                if (index > 0 && model[currentSort] === filtered[index - 1][currentSort]) {
+                    categoryRank = displayRank;
+                } else {
+                    displayRank = index + 1;
+                    categoryRank = displayRank;
+                }
+            }
+
             let rankClass = '';
             let medalText = '';
             if (categoryRank === 1) { rankClass = 'rank-top-1'; medalText = 'Gold'; }
@@ -430,20 +442,20 @@ function renderComparativeCharts() {
     const maxKnowledge = Math.max(...modelsData.map(m => m.knowledge));
 
     // 1. Logic Chart
-    const sortedByLogic = [...modelsData].sort((a, b) => b.logic - a.logic);
+    const sortedByLogic = [...modelsData].sort((a, b) => b.logic !== a.logic ? b.logic - a.logic : a.rank - b.rank);
     logicContainer.innerHTML = buildChartHTML(sortedByLogic, 'logic', maxLogic, '#a855f7', 'linear-gradient(180deg, #c084fc, #7e22ce)');
 
     // 2. Prose Chart
-    const sortedByProse = [...modelsData].sort((a, b) => b.prose - a.prose);
+    const sortedByProse = [...modelsData].sort((a, b) => b.prose !== a.prose ? b.prose - a.prose : a.rank - b.rank);
     proseContainer.innerHTML = buildChartHTML(sortedByProse, 'prose', maxProse, '#ff2e93', 'linear-gradient(180deg, #ff66b2, #ff2e93)');
 
     // 3. Flexibility Chart
-    const sortedByFlex = [...modelsData].sort((a, b) => b.flexibility - a.flexibility);
+    const sortedByFlex = [...modelsData].sort((a, b) => b.flexibility !== a.flexibility ? b.flexibility - a.flexibility : a.rank - b.rank);
     flexContainer.innerHTML = buildChartHTML(sortedByFlex, 'flexibility', maxFlex, '#06b6d4', 'linear-gradient(180deg, #38bdf8, #0284c7)');
 
     // 4. Knowledge Chart
     if (knowledgeContainer) {
-        const sortedByKnowledge = [...modelsData].sort((a, b) => b.knowledge - a.knowledge);
+        const sortedByKnowledge = [...modelsData].sort((a, b) => b.knowledge !== a.knowledge ? b.knowledge - a.knowledge : a.rank - b.rank);
         knowledgeContainer.innerHTML = buildChartHTML(sortedByKnowledge, 'knowledge', maxKnowledge, '#10b981', 'linear-gradient(180deg, #34d399, #059669)');
     }
 
@@ -460,6 +472,7 @@ function renderComparativeCharts() {
 // Helper to construct Side-by-Side Horizontal Bar Chart (Clean, No-Rotated Text)
 function buildChartHTML(dataList, metricKey, maxValue, themeColor, gradientBg) {
     const baseValue = BASES[metricKey];
+    let displayRank = 1;
 
     return `
         <div class="horizontal-bars-list">
@@ -469,13 +482,21 @@ function buildChartHTML(dataList, metricKey, maxValue, themeColor, gradientBg) {
                 const multiplier = (val / baseValue).toFixed(1);
                 const brand = getBrandLogoInfo(model.name);
 
+                let barRank;
+                if (idx > 0 && val === dataList[idx - 1][metricKey]) {
+                    barRank = displayRank;
+                } else {
+                    displayRank = idx + 1;
+                    barRank = displayRank;
+                }
+
                 const iconHTML = brand.img
                     ? `<img src="${brand.img}" alt="${model.name}" class="brand-logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${brand.letter}'">`
                     : `<span class="brand-logo-letter">${brand.letter}</span>`;
 
                 return `
                     <div class="h-bar-row" data-rank="${model.rank}" title="${model.name}: ${val} pts">
-                        <span class="h-bar-rank">#${idx + 1}</span>
+                        <span class="h-bar-rank">#${barRank}</span>
                         <div class="h-bar-brand-icon" style="background: ${brand.bg};">
                             ${iconHTML}
                         </div>
