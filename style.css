@@ -1451,13 +1451,14 @@ h1, h2, h3, h4, h5, h6 {
 .h-bar-row {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
-    padding: 0.3rem 0.55rem;
-    border-radius: 8px;
+    gap: 0.75rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 9px;
     background: rgba(255, 255, 255, 0.015);
     border: 1px solid transparent;
     transition: all 0.2s ease;
     cursor: pointer;
+    min-height: 42px;
 }
 
 .h-bar-row:hover {
@@ -1467,28 +1468,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .h-bar-rank {
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-weight: 800;
     color: var(--text-muted);
-    width: 22px;
+    width: 24px;
     flex-shrink: 0;
     text-align: left;
     font-family: 'JetBrains Mono', monospace;
 }
 
 .card-brand-logo {
-    width: 28px;
-    height: 28px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
-    padding: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-    background: rgba(255, 255, 255, 0.05);
+    padding: 4.5px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.model-card:hover .card-brand-logo {
+    transform: scale(1.08);
+    border-color: var(--primary-pink);
+    box-shadow: 0 0 14px rgba(255, 46, 147, 0.35);
 }
 
 .brand-logo-img {
@@ -1500,7 +1508,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand-logo-letter {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.88rem;
+    font-size: 1.1rem;
     font-weight: 800;
     line-height: 1;
     color: #ffffff;
@@ -1509,22 +1517,28 @@ h1, h2, h3, h4, h5, h6 {
 .model-title-with-logo {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
+    gap: 0.95rem;
 }
 
 .h-bar-brand-icon {
-    width: 22px;
-    height: 22px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     flex-shrink: 0;
     padding: 3px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.38);
     color: #ffffff;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.h-bar-row:hover .h-bar-brand-icon {
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.45);
 }
 
 .h-bar-brand-icon .brand-logo-img {
@@ -1534,15 +1548,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .h-bar-brand-icon .brand-logo-letter {
-    font-size: 0.72rem;
+    font-size: 0.85rem;
     font-weight: 800;
 }
 
 .h-bar-name {
-    font-size: 0.82rem;
+    font-size: 0.86rem;
     font-weight: 600;
     color: #ffffff;
-    width: 140px;
+    width: 145px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1551,9 +1565,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .h-bar-track {
     flex: 1;
-    height: 10px;
+    height: 11px;
     background: rgba(255, 255, 255, 0.06);
-    border-radius: 5px;
+    border-radius: 6px;
     overflow: hidden;
     position: relative;
     min-width: 60px;
@@ -1965,9 +1979,28 @@ h1, h2, h3, h4, h5, h6 {
 .modal-score-box.box-knowledge:hover { border-color: #34d399; box-shadow: 0 6px 20px rgba(52, 211, 153, 0.25); }
 
 .modal-brand-logo {
-    width: 36px;
-    height: 36px;
+    width: 52px;
+    height: 52px;
+    padding: 6.5px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 46, 147, 0.25);
+}
+
+.modal-brand-logo .brand-logo-letter {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.matchup-model-box .card-brand-logo {
+    width: 44px;
+    height: 44px;
     padding: 5px;
+    border-radius: 12px;
+}
+
+.matchup-model-box .card-brand-logo .brand-logo-letter {
+    font-size: 1.25rem;
 }
 
 .modal-score-label {
