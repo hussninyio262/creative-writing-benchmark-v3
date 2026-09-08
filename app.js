@@ -602,24 +602,67 @@ function renderMatchupComparison() {
     // Qualitative Takeaway
     let takeawayText = "";
     if (modelA.rank === modelB.rank) {
-        takeawayText = `Same model selected. Pick two different models to compare.`;
+        takeawayText = `Select two different models to compare.`;
     } else {
-        const advantagesA = [];
-        const advantagesB = [];
+        const winsA = [];
+        const winsB = [];
+        const ties = [];
 
-        if (modelA.logic > modelB.logic) advantagesA.push(`Better logic (+${logicDiff})`);
-        else if (modelB.logic > modelA.logic) advantagesB.push(`Better logic (+${Math.abs(logicDiff)})`);
+        if (modelA.logic > modelB.logic) winsA.push("Logic");
+        else if (modelB.logic > modelA.logic) winsB.push("Logic");
+        else ties.push("Logic");
 
-        if (modelA.prose > modelB.prose) advantagesA.push(`Better prose (+${proseDiff})`);
-        else if (modelB.prose > modelA.prose) advantagesB.push(`Better prose (+${Math.abs(proseDiff)})`);
+        if (modelA.prose > modelB.prose) winsA.push("Prose");
+        else if (modelB.prose > modelA.prose) winsB.push("Prose");
+        else ties.push("Prose");
 
-        if (modelA.flexibility > modelB.flexibility) advantagesA.push(`Higher flexibility (+${flexDiff})`);
-        else if (modelB.flexibility > modelA.flexibility) advantagesB.push(`Higher flexibility (+${Math.abs(flexDiff)})`);
+        if (modelA.flexibility > modelB.flexibility) winsA.push("Flexibility");
+        else if (modelB.flexibility > modelA.flexibility) winsB.push("Flexibility");
+        else ties.push("Flexibility");
 
-        if (modelA.knowledge > modelB.knowledge) advantagesA.push(`Better canon recall (+${knowledgeDiff})`);
-        else if (modelB.knowledge > modelA.knowledge) advantagesB.push(`Better canon recall (+${Math.abs(knowledgeDiff)})`);
+        if (modelA.knowledge > modelB.knowledge) winsA.push("Canon Recall");
+        else if (modelB.knowledge > modelA.knowledge) winsB.push("Canon Recall");
+        else ties.push("Canon Recall");
 
-        takeawayText = `<strong>${modelA.name}</strong> (${advantagesA.length > 0 ? advantagesA.join(', ') : 'Tied'}) vs <strong>${modelB.name}</strong> (${advantagesB.length > 0 ? advantagesB.join(', ') : 'Tied'}).`;
+        const formatList = (arr) => {
+            if (!arr || arr.length === 0) return '';
+            if (arr.length === 1) return arr[0];
+            if (arr.length === 2) return `${arr[0]} & ${arr[1]}`;
+            return `${arr.slice(0, -1).join(', ')}, and ${arr[arr.length - 1]}`;
+        };
+
+        // When a model is clearly ahead / sweeps / better overall
+        if (winsA.length === 4) {
+            takeawayText = `<strong>${modelA.name}</strong> decisively outperforms <strong>${modelB.name}</strong> across all four dimensions.`;
+        } else if (winsB.length === 4) {
+            takeawayText = `<strong>${modelB.name}</strong> decisively outperforms <strong>${modelA.name}</strong> across all four dimensions.`;
+        } else if (winsA.length === 3 && winsB.length === 1) {
+            takeawayText = `<strong>${modelA.name}</strong> holds a clear overall advantage (leading in ${formatList(winsA)}), while <strong>${modelB.name}</strong> leads in ${formatList(winsB)}.`;
+        } else if (winsB.length === 3 && winsA.length === 1) {
+            takeawayText = `<strong>${modelB.name}</strong> holds a clear overall advantage (leading in ${formatList(winsB)}), while <strong>${modelA.name}</strong> leads in ${formatList(winsA)}.`;
+        } else if (winsA.length === 3 && winsB.length === 0) {
+            takeawayText = `<strong>${modelA.name}</strong> holds a clear advantage, leading in ${formatList(winsA)} (${formatList(ties)} tied).`;
+        } else if (winsB.length === 3 && winsA.length === 0) {
+            takeawayText = `<strong>${modelB.name}</strong> holds a clear advantage, leading in ${formatList(winsB)} (${formatList(ties)} tied).`;
+        } else if (winsA.length === 2 && winsB.length === 2) {
+            takeawayText = `A balanced trade-off: <strong>${modelA.name}</strong> leads in ${formatList(winsA)}, while <strong>${modelB.name}</strong> leads in ${formatList(winsB)}.`;
+        } else if (winsA.length === 2 && winsB.length === 1) {
+            takeawayText = `<strong>${modelA.name}</strong> holds the overall edge, leading in ${formatList(winsA)}, while <strong>${modelB.name}</strong> leads in ${formatList(winsB)} (${formatList(ties)} tied).`;
+        } else if (winsB.length === 2 && winsA.length === 1) {
+            takeawayText = `<strong>${modelB.name}</strong> holds the overall edge, leading in ${formatList(winsB)}, while <strong>${modelA.name}</strong> leads in ${formatList(winsA)} (${formatList(ties)} tied).`;
+        } else if (winsA.length === 2 && winsB.length === 0) {
+            takeawayText = `<strong>${modelA.name}</strong> holds an edge in ${formatList(winsA)}, with both models tied across the rest.`;
+        } else if (winsB.length === 2 && winsA.length === 0) {
+            takeawayText = `<strong>${modelB.name}</strong> holds an edge in ${formatList(winsB)}, with both models tied across the rest.`;
+        } else if (winsA.length === 1 && winsB.length === 1) {
+            takeawayText = `Evenly split: <strong>${modelA.name}</strong> leads in ${formatList(winsA)}, <strong>${modelB.name}</strong> leads in ${formatList(winsB)}, and ${formatList(ties)} are tied.`;
+        } else if (winsA.length === 1 && winsB.length === 0) {
+            takeawayText = `<strong>${modelA.name}</strong> edges ahead in ${formatList(winsA)}, with both models tied across all remaining dimensions.`;
+        } else if (winsB.length === 1 && winsA.length === 0) {
+            takeawayText = `<strong>${modelB.name}</strong> edges ahead in ${formatList(winsB)}, with both models tied across all remaining dimensions.`;
+        } else {
+            takeawayText = `Both models are evenly matched across all dimensions.`;
+        }
     }
 
     matchupResultsContainer.innerHTML = `
