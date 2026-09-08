@@ -1493,7 +1493,16 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(4px);
 }
 
+.h-bar-header-row {
+    display: contents;
+}
+
+.h-bar-model-info {
+    display: contents;
+}
+
 .h-bar-rank {
+    order: 1;
     font-size: 0.78rem;
     font-weight: 800;
     color: var(--text-muted);
@@ -1547,6 +1556,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .h-bar-brand-icon {
+    order: 2;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -1579,6 +1589,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .h-bar-name {
+    order: 3;
     font-size: 0.86rem;
     font-weight: 600;
     color: #ffffff;
@@ -1590,6 +1601,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .h-bar-track {
+    order: 4;
     flex: 1;
     height: 11px;
     background: rgba(255, 255, 255, 0.06);
@@ -1607,6 +1619,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .h-bar-val {
+    order: 5;
     font-family: 'Outfit', sans-serif;
     font-size: 0.86rem;
     font-weight: 800;
@@ -2482,48 +2495,73 @@ footer {
     }
     .h-bar-row {
         display: flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.3rem 0.4rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.4rem;
+        padding: 0.45rem 0.6rem;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        min-height: 34px;
+        min-height: auto;
     }
     .h-bar-row:hover {
         transform: none;
     }
+    .h-bar-header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        order: 1;
+    }
+    .h-bar-model-info {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        min-width: 0;
+        flex: 1;
+    }
     .h-bar-rank {
-        width: 18px;
-        font-size: 0.72rem;
+        width: 22px;
+        font-size: 0.76rem;
         flex-shrink: 0;
+        order: 1;
     }
     .h-bar-brand-icon {
         width: 22px;
         height: 22px;
         padding: 2px;
         flex-shrink: 0;
+        order: 2;
     }
     .h-bar-name {
-        font-size: 0.76rem;
-        width: 82px;
-        max-width: 82px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        width: auto;
+        max-width: 100%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        flex-shrink: 0;
-    }
-    .h-bar-track {
-        flex: 1;
-        min-width: 35px;
-        height: 8px;
-        border-radius: 4px;
+        flex-shrink: 1;
+        order: 3;
     }
     .h-bar-val {
-        font-size: 0.76rem;
-        width: 28px;
+        font-size: 0.84rem;
+        font-weight: 800;
+        width: auto;
         text-align: right;
         flex-shrink: 0;
+        line-height: 1;
+        order: 4;
+    }
+    .h-bar-track {
+        flex: none;
+        width: 100%;
+        min-width: 100%;
+        height: 7px;
+        border-radius: 4px;
+        order: 2;
+        margin: 0.2rem 0 0.1rem 0;
     }
 
     /* Head-to-Head Matchup */
@@ -2626,9 +2664,7 @@ footer {
         padding: 0.85rem 0.65rem;
     }
     .h-bar-name {
-        width: 68px;
-        max-width: 68px;
-        font-size: 0.72rem;
+        font-size: 0.78rem;
     }
     .matchup-delta-summary {
         grid-template-columns: 1fr;

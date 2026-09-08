@@ -496,15 +496,19 @@ function buildChartHTML(dataList, metricKey, maxValue, themeColor, gradientBg) {
 
                 return `
                     <div class="h-bar-row" data-rank="${model.rank}" title="${model.name}: ${val} pts">
-                        <span class="h-bar-rank">#${barRank}</span>
-                        <div class="h-bar-brand-icon" style="background: ${brand.bg};">
-                            ${iconHTML}
+                        <div class="h-bar-header-row">
+                            <div class="h-bar-model-info">
+                                <span class="h-bar-rank">#${barRank}</span>
+                                <div class="h-bar-brand-icon" style="background: ${brand.bg};">
+                                    ${iconHTML}
+                                </div>
+                                <span class="h-bar-name" title="${model.name}">${model.name}</span>
+                            </div>
+                            <span class="h-bar-val" style="color: ${themeColor};">${val}</span>
                         </div>
-                        <span class="h-bar-name" title="${model.name}">${model.name}</span>
                         <div class="h-bar-track">
                             <div class="h-bar-fill" style="width: ${widthPct}%; background: ${gradientBg};"></div>
                         </div>
-                        <span class="h-bar-val" style="color: ${themeColor};">${val}</span>
                     </div>
                 `;
             }).join('')}
