@@ -2,36 +2,46 @@
 const modelsData = [
     {
         rank: 1,
+        name: "Gemini 3.8 Flash",
+        logic: 420,
+        prose: 480,
+        flexibility: 500,
+        knowledge: 470,
+        context: "1M",
+        desc: "Better in logic than 3.1 Pro, superior flexibility and top-tier prose quality. Lower raw knowledge than 3.1 Pro due to smaller model scale, but boasts significantly improved canon recall and lore retention over 3.7 Flash."
+    },
+    {
+        rank: 2,
         name: "Gemini 3.1 Pro",
         logic: 405,
         prose: 470,
         flexibility: 480,
         knowledge: 500,
         context: "1M",
-        desc: "Absolute best at prose, canon knowledge recall, and content flexibility. Resists earned character development, slight instruction-following drift."
+        desc: "Unmatched deep canon knowledge recall and top-tier prose. Resists earned character development, slight instruction-following drift."
     },
     {
-        rank: 2,
+        rank: 3,
         name: "Gemini 3.7 Flash",
         logic: 390,
         prose: 430,
         flexibility: 490,
-        knowledge: 480,
+        knowledge: 420,
         context: "1M",
-        desc: "Slightly weaker logic than 3.1 Pro, but the flexibility champion. More concise, resistant to sycophancy, with rapid punchy prose."
+        desc: "High flexibility and concise, punchy prose. Lower canon recall and knowledge retention than 3.8 Flash, but very resistant to sycophancy."
     },
     {
-        rank: 3,
+        rank: 4,
         name: "Kimi k3",
         logic: 500,
         prose: 400,
         flexibility: 250,
         knowledge: 420,
         context: "256k (1M API)",
-        desc: "Number one in logic, decent at prose. Heavy CoT reasoning tax."
+        desc: "High logic, decent at prose. Heavy CoT reasoning tax."
     },
     {
-        rank: 4,
+        rank: 5,
         name: "GLM 5.3",
         logic: 510,
         prose: 360,
@@ -41,7 +51,7 @@ const modelsData = [
         desc: "Better in logic than Kimi by a little, worse at prose than Kimi (meh), and solid flexibility."
     },
     {
-        rank: 5,
+        rank: 6,
         name: "Opus 4.8",
         logic: 480,
         prose: 380,
@@ -51,7 +61,7 @@ const modelsData = [
         desc: "Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic."
     },
     {
-        rank: 6,
+        rank: 7,
         name: "Opus 4.6",
         logic: 460,
         prose: 400,
@@ -61,7 +71,7 @@ const modelsData = [
         desc: "Decent logic, slightly better than 4.8 in prose."
     },
     {
-        rank: 7,
+        rank: 8,
         name: "Gemini 3 Flash",
         logic: 320,
         prose: 420,
@@ -71,7 +81,7 @@ const modelsData = [
         desc: "Very flexible. Amazing lightweight model."
     },
     {
-        rank: 8,
+        rank: 9,
         name: "DeepSeek v4",
         logic: 150,
         prose: 400,
@@ -81,7 +91,7 @@ const modelsData = [
         desc: "Great flexibility, lower logic consistency."
     },
     {
-        rank: 9,
+        rank: 10,
         name: "Opus 5",
         logic: 400,
         prose: 300,
@@ -91,7 +101,7 @@ const modelsData = [
         desc: "Highly capable logic, but very limited flexibility and dry prose."
     },
     {
-        rank: 10,
+        rank: 11,
         name: "Gemini 3.5 Flash",
         logic: 380,
         prose: 350,
@@ -101,7 +111,7 @@ const modelsData = [
         desc: "Solid step up in logic from 3 Flash."
     },
     {
-        rank: 11,
+        rank: 12,
         name: "GLM 5.2",
         logic: 380,
         prose: 300,
@@ -111,7 +121,7 @@ const modelsData = [
         desc: "Sits below Opus 4.6/5 in logic, stiffer prose."
     },
     {
-        rank: 12,
+        rank: 13,
         name: "Gemini 3.6 Flash",
         logic: 300,
         prose: 320,
@@ -121,7 +131,7 @@ const modelsData = [
         desc: "Excellent long-context needle retrieval."
     },
     {
-        rank: 13,
+        rank: 14,
         name: "Muse Spark 1.1",
         logic: 360,
         prose: 300,
@@ -131,7 +141,7 @@ const modelsData = [
         desc: "Well-balanced overall baseline."
     },
     {
-        rank: 14,
+        rank: 15,
         name: "Sonnet 4.6",
         logic: 350,
         prose: 320,
@@ -141,7 +151,7 @@ const modelsData = [
         desc: "Good general benchmark baseline, stiffer narrative prose."
     },
     {
-        rank: 15,
+        rank: 16,
         name: "Qwen 3.8 Max",
         logic: 200,
         prose: 350,
@@ -151,7 +161,7 @@ const modelsData = [
         desc: "Capable prose styling, constrained flexibility."
     },
     {
-        rank: 16,
+        rank: 17,
         name: "ChatGPT 5.6 Sol Max",
         logic: 50,
         prose: 250,
@@ -320,6 +330,9 @@ function renderLeaderboard() {
     });
 
     leaderboardContainer.innerHTML = '';
+    if (modelCountBadge) {
+        modelCountBadge.textContent = `${modelsData.length} Models Evaluated`;
+    }
 
     if (filtered.length === 0) {
         noResultsCard.style.display = 'block';
