@@ -1950,6 +1950,26 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 8px #ff66b2;
 }
 
+.modal-vector-bar.bar-logic::after { box-shadow: 0 0 8px #c084fc, 0 0 14px #7e22ce; }
+.modal-vector-bar.bar-prose::after { box-shadow: 0 0 8px #ff66b2, 0 0 14px #ff2e93; }
+.modal-vector-bar.bar-flex::after { box-shadow: 0 0 8px #38bdf8, 0 0 14px #0284c7; }
+.modal-vector-bar.bar-knowledge::after { box-shadow: 0 0 8px #34d399, 0 0 14px #059669; }
+
+.modal-score-box.box-logic { border-color: rgba(192, 132, 252, 0.25); }
+.modal-score-box.box-logic:hover { border-color: #c084fc; box-shadow: 0 6px 20px rgba(192, 132, 252, 0.25); }
+.modal-score-box.box-prose { border-color: rgba(255, 46, 147, 0.25); }
+.modal-score-box.box-prose:hover { border-color: #ff2e93; box-shadow: 0 6px 20px rgba(255, 46, 147, 0.25); }
+.modal-score-box.box-flex { border-color: rgba(56, 189, 248, 0.25); }
+.modal-score-box.box-flex:hover { border-color: #38bdf8; box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25); }
+.modal-score-box.box-knowledge { border-color: rgba(52, 211, 153, 0.25); }
+.modal-score-box.box-knowledge:hover { border-color: #34d399; box-shadow: 0 6px 20px rgba(52, 211, 153, 0.25); }
+
+.modal-brand-logo {
+    width: 36px;
+    height: 36px;
+    padding: 5px;
+}
+
 .modal-score-label {
     font-size: 0.8rem;
     text-transform: uppercase;
