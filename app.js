@@ -319,14 +319,13 @@ function renderLeaderboard() {
         return true;
     });
 
-    // Sorting
+    // Sorting with stable secondary tie-breaker by overall rank
     filtered.sort((a, b) => {
         if (currentSort === 'rank') return a.rank - b.rank;
-        if (currentSort === 'logic') return b.logic - a.logic;
-        if (currentSort === 'prose') return b.prose - a.prose;
-        if (currentSort === 'flexibility') return b.flexibility - a.flexibility;
-        if (currentSort === 'knowledge') return b.knowledge - a.knowledge;
-        return 0;
+        if (b[currentSort] !== a[currentSort]) {
+            return b[currentSort] - a[currentSort];
+        }
+        return a.rank - b.rank;
     });
 
     leaderboardContainer.innerHTML = '';
@@ -339,16 +338,17 @@ function renderLeaderboard() {
     } else {
         noResultsCard.style.display = 'none';
         
-        filtered.forEach(model => {
+        filtered.forEach((model, index) => {
             const card = document.createElement('div');
             card.className = 'model-card glass-card';
             card.id = `model-card-${model.rank}`;
 
+            const categoryRank = index + 1;
             let rankClass = '';
             let medalText = '';
-            if (model.rank === 1) { rankClass = 'rank-top-1'; medalText = 'Gold'; }
-            else if (model.rank === 2) { rankClass = 'rank-top-2'; medalText = 'Silver'; }
-            else if (model.rank === 3) { rankClass = 'rank-top-3'; medalText = 'Bronze'; }
+            if (categoryRank === 1) { rankClass = 'rank-top-1'; medalText = 'Gold'; }
+            else if (categoryRank === 2) { rankClass = 'rank-top-2'; medalText = 'Silver'; }
+            else if (categoryRank === 3) { rankClass = 'rank-top-3'; medalText = 'Bronze'; }
 
             // Check if model has a quirk callout
             let quirkTagHTML = '';
@@ -367,10 +367,15 @@ function renderLeaderboard() {
                 ? `<div class="card-brand-logo" style="background: ${brand.bg};"><img src="${brand.img}" alt="${model.name} logo" class="brand-logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${brand.letter}'"></div>`
                 : `<div class="card-brand-logo" style="background: ${brand.bg};"><span class="brand-logo-letter">${brand.letter}</span></div>`;
 
+            const overallSubtitle = (currentSort !== 'rank')
+                ? `<span class="overall-rank-badge" title="Overall Benchmark Rank">Overall #${model.rank}</span>`
+                : '';
+
             card.innerHTML = `
                 <div class="model-rank-wrapper">
-                    <div class="model-rank ${rankClass}">#${model.rank}</div>
+                    <div class="model-rank ${rankClass}">#${categoryRank}</div>
                     ${medalText ? `<span class="rank-medal">${medalText}</span>` : ''}
+                    ${overallSubtitle}
                 </div>
                 <div class="model-info">
                     <div class="model-header-line">
@@ -382,19 +387,19 @@ function renderLeaderboard() {
                     <p class="model-desc">${model.desc}</p>
                 </div>
                 <div class="model-metrics">
-                    <div class="metric" title="Logic Score: ${model.logic}">
+                    <div class="metric ${currentSort === 'logic' ? 'active-metric-box' : ''}" title="Logic Score: ${model.logic}">
                         <span class="metric-val" style="color: #c084fc;">${model.logic}</span>
                         <span class="metric-label">Logic</span>
                     </div>
-                    <div class="metric" title="Prose Score: ${model.prose}">
+                    <div class="metric ${currentSort === 'prose' ? 'active-metric-box' : ''}" title="Prose Score: ${model.prose}">
                         <span class="metric-val" style="color: #ff2e93;">${model.prose}</span>
                         <span class="metric-label">Prose</span>
                     </div>
-                    <div class="metric" title="Flexibility Score: ${model.flexibility}">
+                    <div class="metric ${currentSort === 'flexibility' ? 'active-metric-box' : ''}" title="Flexibility Score: ${model.flexibility}">
                         <span class="metric-val" style="color: #38bdf8;">${model.flexibility}</span>
                         <span class="metric-label">Flex</span>
                     </div>
-                    <div class="metric" title="Knowledge Score: ${model.knowledge}">
+                    <div class="metric ${currentSort === 'knowledge' ? 'active-metric-box' : ''}" title="Knowledge Score: ${model.knowledge}">
                         <span class="metric-val" style="color: #34d399;">${model.knowledge}</span>
                         <span class="metric-label">Know</span>
                     </div>

@@ -1261,6 +1261,19 @@ h1, h2, h3, h4, h5, h6 {
 .rank-top-2 + .rank-medal { color: #e0e0e0; }
 .rank-top-3 + .rank-medal { color: #cd7f32; }
 
+.overall-rank-badge {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 0.35rem;
+    white-space: nowrap;
+    letter-spacing: 0.4px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 /* Model Info */
 .model-info {
     display: flex;
@@ -1657,6 +1670,13 @@ h1, h2, h3, h4, h5, h6 {
     border-color: rgba(255, 46, 147, 0.35);
     background: rgba(0, 0, 0, 0.7);
     transform: translateY(-2px);
+}
+
+.metric.active-metric-box {
+    background: rgba(255, 46, 147, 0.12) !important;
+    border-color: rgba(255, 46, 147, 0.55) !important;
+    box-shadow: 0 0 16px rgba(255, 46, 147, 0.35);
+    transform: scale(1.04);
 }
 
 .metric-val {
