@@ -2113,6 +2113,11 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(245, 158, 11, 0.04);
 }
 
+.quirk-card.gemini-theme {
+    border-color: rgba(49, 134, 255, 0.4);
+    background: rgba(49, 134, 255, 0.04);
+}
+
 .quirk-card.info {
     border-color: rgba(56, 189, 248, 0.35);
     background: rgba(56, 189, 248, 0.04);
@@ -2143,6 +2148,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .danger-tag { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+.gemini-tag { background: rgba(49, 134, 255, 0.2); color: #93c5fd; border: 1px solid rgba(49, 134, 255, 0.4); }
 .warning-tag { background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.4); }
 .info-tag { background: rgba(56, 189, 248, 0.2); color: #bae6fd; border: 1px solid rgba(56, 189, 248, 0.4); }
 
@@ -2180,6 +2186,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .danger-fill { background: linear-gradient(90deg, #f87171, #ef4444); }
+.gemini-fill { background: linear-gradient(90deg, #60a5fa, #3186ff); }
 .warning-fill { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
 .info-fill { background: linear-gradient(90deg, #38bdf8, #0284c7); }
 

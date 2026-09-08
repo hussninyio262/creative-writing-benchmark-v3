@@ -1,6 +1,6 @@
 # LLM Creative Writing Benchmark Beta V3
 
-> **Important Note**: I actually haven't tested or am testing models FOR v3. So that's why you won't see it.
+> **Important Note**: Astra coming very soon ;)
 
 Comprehensive creative writing evaluation across 17 frontier and open-weights LLMs tested on 600 narrative scenarios, deep constraint adherence tests, and qualitative genre evaluations.
 

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=v7">
+    <link rel="stylesheet" href="style.css?v=v8">
     <style>
         body {
             zoom: 0.8;
@@ -44,7 +44,7 @@
         <!-- Important Notice Banner -->
         <div class="important-notice-banner glass-card fade-in">
             <div class="notice-badge">IMPORTANT NOTE</div>
-            <p class="notice-text">I actually haven't tested or am testing models FOR v3. So that's why you won't see it.</p>
+            <p class="notice-text">Astra coming very soon ;)</p>
         </div>
 
         <!-- 1. Methodology Section -->
@@ -303,10 +303,10 @@
                     <p>Exhibits a 92% hallucination severity rate on creative benchmarks—meaning when it hallucinates (which is frequent on creative roleplay and multi-turn narratives), it hallucinates heavily: misreading canon, fabricating contradictory lore, and rigidly imposing incorrect narrative inferences. Yet, paradoxically, it remains the #1 model for pure literal context remembrance and needle recall accuracy (256k on Plus; 1M via API), with Gemini 3.6 Flash ranking #2 right behind it.</p>
                 </div>
                 
-                <div class="quirk-card glass-card warning" id="quirk-gemini">
+                <div class="quirk-card glass-card gemini-theme" id="quirk-gemini">
                     <div class="quirk-header">
                         <h3>Gemini 3.1 Pro</h3>
-                        <span class="quirk-tag warning-tag">Instruction & Sycophancy</span>
+                        <span class="quirk-tag gemini-tag">Instruction & Sycophancy</span>
                     </div>
                     <div class="hallucination-meter">
                         <div class="meter-header">
@@ -314,10 +314,10 @@
                             <strong>Needs Reinforcement</strong>
                         </div>
                         <div class="meter-bar">
-                            <div class="meter-fill warning-fill" style="width: 75%;"></div>
+                            <div class="meter-fill gemini-fill" style="width: 75%;"></div>
                         </div>
                     </div>
-                    <p>While holding the #1 overall spot for prose and flexibility, it actually has a bit of a problem with strict instruction following and constraint adherence. It also preserves baseline characterization too aggressively—characters often resist earned development after major events, remaining "rainbows and sunshine" despite trauma. Requires explicit anti-sycophancy prompts and instruction reinforcement.</p>
+                    <p>While formerly holding the #1 overall spot for prose and flexibility (now edged by Gemini 3.8 Flash), it actually has a bit of a problem with strict instruction following and constraint adherence. It also preserves baseline characterization too aggressively—characters often resist earned development after major events, remaining "rainbows and sunshine" despite trauma. Requires explicit anti-sycophancy prompts and instruction reinforcement.</p>
                 </div>
 
                 <div class="quirk-card glass-card warning" id="quirk-kimi">
@@ -334,7 +334,7 @@
                             <div class="meter-fill warning-fill" style="width: 80%;"></div>
                         </div>
                     </div>
-                    <p>Undisputed champion in raw logic (500), but comes with a steep Reasoning Token Tax: it eats significant context window space on internal Chain-of-Thought (CoT) tokens before producing prose. Furthermore, it thinks for a long time before streaming output, causing noticeable generation latency in interactive sessions.</p>
+                    <p>Possessing elite causal logic (500, narrowly edged in raw puzzle-solving by GLM 5.3 at 510), Kimi comes with a steep Reasoning Token Tax: it eats significant context window space on internal Chain-of-Thought (CoT) tokens before producing prose. Furthermore, it thinks for a long time before streaming output, causing noticeable generation latency in interactive sessions alongside tightly constrained content flexibility (180).</p>
                 </div>
 
                 <div class="quirk-card glass-card info" id="quirk-opus">
@@ -435,6 +435,6 @@
         </div>
     </footer>
 
-    <script src="app.js?v=v7"></script>
+    <script src="app.js?v=v8"></script>
 </body>
 </html>
