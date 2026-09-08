@@ -4,7 +4,7 @@
 
 Comprehensive creative writing evaluation across 16 frontier and open-weights LLMs tested on 600 narrative scenarios, deep constraint adherence tests, and qualitative genre evaluations.
 
-Live Public Site: [https://hero699.github.io/creative-writing-benchmark-v3/](https://hero699.github.io/creative-writing-benchmark-v3/)
+Live Public Site: [https://hussninyio262.github.io/creative-writing-benchmark-v3/](https://hussninyio262.github.io/creative-writing-benchmark-v3/)
 
 ---
 
