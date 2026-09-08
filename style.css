@@ -533,6 +533,16 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--primary-pink);
 }
 
+.harness-body h3.harness-markdown-title {
+    color: var(--primary-pink);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.01em;
+}
+
 .harness-body p {
     margin-bottom: 1.2rem;
     color: #e5dada;
