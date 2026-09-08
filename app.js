@@ -26,7 +26,7 @@ const modelsData = [
         logic: 390,
         prose: 430,
         flexibility: 490,
-        knowledge: 420,
+        knowledge: 460,
         context: "1M",
         desc: "High flexibility and concise, punchy prose. Lower canon recall and knowledge retention than 3.8 Flash, but very resistant to sycophancy."
     },
@@ -62,6 +62,16 @@ const modelsData = [
     },
     {
         rank: 7,
+        name: "Gemini 3 Flash",
+        logic: 320,
+        prose: 420,
+        flexibility: 450,
+        knowledge: 425,
+        context: "1M",
+        desc: "Very flexible. Amazing lightweight model."
+    },
+    {
+        rank: 8,
         name: "Opus 4.6",
         logic: 460,
         prose: 400,
@@ -69,16 +79,6 @@ const modelsData = [
         knowledge: 340,
         context: "200k (1M API)",
         desc: "Decent logic, slightly better than 4.8 in prose."
-    },
-    {
-        rank: 8,
-        name: "Gemini 3 Flash",
-        logic: 320,
-        prose: 420,
-        flexibility: 450,
-        knowledge: 400,
-        context: "1M",
-        desc: "Very flexible. Amazing lightweight model."
     },
     {
         rank: 9,
@@ -92,16 +92,6 @@ const modelsData = [
     },
     {
         rank: 10,
-        name: "Opus 5",
-        logic: 400,
-        prose: 300,
-        flexibility: 200,
-        knowledge: 360,
-        context: "200k (1M API)",
-        desc: "Highly capable logic, but very limited flexibility and dry prose."
-    },
-    {
-        rank: 11,
         name: "Gemini 3.5 Flash",
         logic: 380,
         prose: 350,
@@ -111,7 +101,27 @@ const modelsData = [
         desc: "Solid step up in logic from 3 Flash."
     },
     {
+        rank: 11,
+        name: "Opus 5",
+        logic: 400,
+        prose: 300,
+        flexibility: 200,
+        knowledge: 360,
+        context: "200k (1M API)",
+        desc: "Highly capable logic, but very limited flexibility and dry prose."
+    },
+    {
         rank: 12,
+        name: "Gemini 3.6 Flash",
+        logic: 300,
+        prose: 320,
+        flexibility: 370,
+        knowledge: 450,
+        context: "1M-2M",
+        desc: "Excellent long-context needle retrieval."
+    },
+    {
+        rank: 13,
         name: "GLM 5.2",
         logic: 380,
         prose: 300,
@@ -119,16 +129,6 @@ const modelsData = [
         knowledge: 300,
         context: "200k",
         desc: "Sits below Opus 4.6/5 in logic, stiffer prose."
-    },
-    {
-        rank: 13,
-        name: "Gemini 3.6 Flash",
-        logic: 300,
-        prose: 320,
-        flexibility: 370,
-        knowledge: 460,
-        context: "1M-2M",
-        desc: "Excellent long-context needle retrieval."
     },
     {
         rank: 14,
