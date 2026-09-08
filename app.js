@@ -8,7 +8,7 @@ const modelsData = [
         flexibility: 500,
         knowledge: 470,
         context: "1M",
-        desc: "Better in logic than 3.1 Pro, superior flexibility and top-tier prose quality. Lower raw knowledge than 3.1 Pro due to smaller model scale, but boasts significantly improved canon recall and lore retention over 3.7 Flash."
+        desc: "Better in logic than 3.1 Pro, superior flexibility and top-tier prose quality. Lower raw knowledge than 3.1 Pro due to smaller scale, but has significantly improved canon recall and lore retention over 3.7 Flash."
     },
     {
         rank: 2,
@@ -168,7 +168,7 @@ const modelsData = [
         flexibility: 100,
         knowledge: 200,
         context: "256k (1M API)",
-        desc: "Baseline retrieval champion, but high creative hallucination severity rate."
+        desc: "Top needle retrieval accuracy, but severe 92% creative hallucination rate."
     }
 ];
 
@@ -330,7 +330,7 @@ function renderLeaderboard() {
 
     leaderboardContainer.innerHTML = '';
     if (modelCountBadge) {
-        modelCountBadge.textContent = `${modelsData.length} Models Evaluated`;
+        modelCountBadge.textContent = `${modelsData.length} Models`;
     }
 
     if (filtered.length === 0) {
@@ -412,7 +412,7 @@ function renderLeaderboard() {
     }
 
     if (modelCountBadge) {
-        modelCountBadge.textContent = `${filtered.length} Models Shown`;
+        modelCountBadge.textContent = `${filtered.length} Models`;
     }
 }
 
@@ -602,24 +602,24 @@ function renderMatchupComparison() {
     // Qualitative Takeaway
     let takeawayText = "";
     if (modelA.rank === modelB.rank) {
-        takeawayText = `Same model selected. Choose two distinct models to evaluate architectural divergence.`;
+        takeawayText = `Same model selected. Pick two different models to compare.`;
     } else {
         const advantagesA = [];
         const advantagesB = [];
 
-        if (modelA.logic > modelB.logic) advantagesA.push(`Superior causal logic (+${logicDiff} pts)`);
-        else if (modelB.logic > modelA.logic) advantagesB.push(`Superior causal logic (+${Math.abs(logicDiff)} pts)`);
+        if (modelA.logic > modelB.logic) advantagesA.push(`Better logic (+${logicDiff})`);
+        else if (modelB.logic > modelA.logic) advantagesB.push(`Better logic (+${Math.abs(logicDiff)})`);
 
-        if (modelA.prose > modelB.prose) advantagesA.push(`Richer prose flow (+${proseDiff} pts)`);
-        else if (modelB.prose > modelA.prose) advantagesB.push(`Richer prose flow (+${Math.abs(proseDiff)} pts)`);
+        if (modelA.prose > modelB.prose) advantagesA.push(`Better prose (+${proseDiff})`);
+        else if (modelB.prose > modelA.prose) advantagesB.push(`Better prose (+${Math.abs(proseDiff)})`);
 
-        if (modelA.flexibility > modelB.flexibility) advantagesA.push(`Broader thematic versatility (+${flexDiff} pts)`);
-        else if (modelB.flexibility > modelA.flexibility) advantagesB.push(`Broader thematic versatility (+${Math.abs(flexDiff)} pts)`);
+        if (modelA.flexibility > modelB.flexibility) advantagesA.push(`Higher flexibility (+${flexDiff})`);
+        else if (modelB.flexibility > modelA.flexibility) advantagesB.push(`Higher flexibility (+${Math.abs(flexDiff)})`);
 
-        if (modelA.knowledge > modelB.knowledge) advantagesA.push(`Deeper canon knowledge (+${knowledgeDiff} pts)`);
-        else if (modelB.knowledge > modelA.knowledge) advantagesB.push(`Deeper canon knowledge (+${Math.abs(knowledgeDiff)} pts)`);
+        if (modelA.knowledge > modelB.knowledge) advantagesA.push(`Better canon recall (+${knowledgeDiff})`);
+        else if (modelB.knowledge > modelA.knowledge) advantagesB.push(`Better canon recall (+${Math.abs(knowledgeDiff)})`);
 
-        takeawayText = `<strong>${modelA.name}</strong> (${advantagesA.length > 0 ? advantagesA.join(', ') : 'No primary score edge'}) vs <strong>${modelB.name}</strong> (${advantagesB.length > 0 ? advantagesB.join(', ') : 'No primary score edge'}).`;
+        takeawayText = `<strong>${modelA.name}</strong> (${advantagesA.length > 0 ? advantagesA.join(', ') : 'Tied'}) vs <strong>${modelB.name}</strong> (${advantagesB.length > 0 ? advantagesB.join(', ') : 'Tied'}).`;
     }
 
     matchupResultsContainer.innerHTML = `
@@ -737,7 +737,7 @@ function renderMatchupComparison() {
 
         <!-- Qualitative Verdict Box -->
         <div class="matchup-takeaway-card">
-            <h4>Evaluator Matchup Breakdown</h4>
+            <h4>Comparison</h4>
             <p>${takeawayText}</p>
         </div>
     `;
@@ -848,7 +848,7 @@ function openModelModal(model) {
         </div>
 
         <div class="modal-desc-box">
-            <h4 style="color: var(--primary-pink); margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Evaluator Deep-Dive Notes</h4>
+            <h4 style="color: var(--primary-pink); margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Notes</h4>
             <p>${model.desc}</p>
         </div>
     `;
@@ -994,10 +994,8 @@ if (exportHarnessBtn) {
 if (exportMarkdownBtn) {
     exportMarkdownBtn.addEventListener('click', async () => {
         let md = `# LLM Creative Writing Benchmark Beta V3\n\n`;
-        md += `> **Important Note**: I actually haven't tested or am testing models FOR v3. So that's why you won't see it.\n\n`;
-        md += `> **Scale**: 600 Tests | 12 Genres | 150 Unique Samples\n`;
-        md += `> **Sol Baseline**: 50 Logic / 250 Prose / 100 Flex / 200 Knowledge (Uncapped Scale)\n\n`;
-        md += `| Rank | Model Name | Logic | Prose | Flexibility | Knowledge | Context Window | Evaluator Notes |\n`;
+        md += `> **Note**: Astra coming very soon ;)\n\n`;
+        md += `| Rank | Model Name | Logic | Prose | Flexibility | Knowledge | Context Window | Notes |\n`;
         md += `|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---|\n`;
 
         modelsData.forEach(m => {
@@ -1026,7 +1024,7 @@ if (shareLinkBtn) {
             try {
                 await navigator.share({
                     title: 'LLM Creative Writing Benchmark Beta V3',
-                    text: 'Explore frontier LLM creative writing benchmark rankings, logic vs prose scores, and system prompt harness.',
+                    text: 'LLM Creative Writing Benchmark Beta V3',
                     url: window.location.href
                 });
             } catch (err) {

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creative Writing LLM Benchmark Beta V3</title>
-    <meta name="description" content="The definitive benchmark for LLM creative writing capabilities.">
+    <meta name="description" content="Creative writing benchmark evaluating LLMs on logic, prose, flexibility, and canon knowledge.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=v8">
+    <link rel="stylesheet" href="style.css?v=v9">
     <style>
         body {
             zoom: 0.8;
@@ -25,13 +25,12 @@
     
     <header class="glass-header">
         <div class="header-content">
-            <div class="header-badge">BENCHMARK BETA V3 • SOTA CREATIVE EVALUATION</div>
+            <div class="header-badge">BENCHMARK BETA V3</div>
             <h1>LLM Creative Writing Benchmark <span>Beta V3</span></h1>
-            <p class="subtitle">SOTA Models in AI Prose, Logic, and Flexibility</p>
+            <p class="subtitle">Prose, Logic, Flexibility, and Canon Recall across 17 Frontier & Open Models</p>
 
-            <!-- Quick Navigation Bar for Instant Section Discovery -->
             <nav class="quick-nav-bar" id="quick-nav-bar" aria-label="Quick Section Navigation">
-                <a href="#charts" class="nav-pill">Comparative Charts</a>
+                <a href="#charts" class="nav-pill">Charts</a>
                 <a href="#matchup" class="nav-pill">Matchup</a>
                 <a href="#leaderboard" class="nav-pill">Leaderboard</a>
                 <a href="#quirks" class="nav-pill nav-pill-highlight">Model Quirks</a>
@@ -43,7 +42,7 @@
     <main class="container">
         <!-- Important Notice Banner -->
         <div class="important-notice-banner glass-card fade-in">
-            <div class="notice-badge">IMPORTANT NOTE</div>
+            <div class="notice-badge">NOTE</div>
             <p class="notice-text">Astra coming very soon ;)</p>
         </div>
 
@@ -51,7 +50,6 @@
         <section class="methodology-card glass-card fade-in" id="methodology">
             <div class="section-title-wrapper">
                 <h2>Methodology</h2>
-                <span class="meta-tag">Multi-Genre Evaluation</span>
             </div>
             <div class="methodology-content">
                 <div class="stat-group">
@@ -70,9 +68,9 @@
                     </div>
                 </div>
                 <div class="description">
-                    <p>The testing methodology is massive, as demonstrated by the sample size, designed to rigorously evaluate <strong>character adherence</strong> (personality, ideals, voice, and internal consistency), <strong>abstract creativity</strong>, <strong>short and long-horizon logic</strong>, and the sheer quality of the <strong>prose</strong>. Going far beyond surface-level generation, it explicitly tests for <strong>emotional intelligence (EQ) and subtext</strong> (show, don't tell), <strong>narrative pacing</strong>, <strong>spatial and temporal awareness</strong> within scenes, and the ability to juggle <strong>complex multi-character dynamics</strong> without reducing them to a hivemind.</p>
-                    <p>Furthermore, it scrutinizes <strong>consistent world-building & canon knowledge recall</strong> (ensuring accurate IP lore, character backstory persistence, and zero continuity errors), <strong>strict adherence to negative constraints</strong>, <strong>resistance to sycophancy</strong>, and how well a model extrapolates complex scenarios while remaining logically grounded—heavily penalizing <strong>clichés, repetitive formatting, and forced, moralizing resolutions</strong>.</p>
-                    <p>Evaluations encompass 150 unique scenarios across 3 primary genres (50 each, 150 tests), alongside 3 iterations across 50 scenarios spanning the remaining 9 genres (450 tests), establishing a total of <strong>600 evaluation runs</strong> across the benchmark. All models are evaluated using a strict, standardized <strong>System Instruction Harness</strong> at default temperature settings.</p>
+                    <p>Evaluates models on <strong>character consistency</strong> (voice, personality, behavior), <strong>logic</strong> (causal continuity, spatial awareness, long-horizon coherence), and <strong>prose quality</strong> (subtext, pacing, dialogue, and avoiding clichés).</p>
+                    <p>Models are also tested on <strong>canon lore recall</strong> (accurate IP knowledge and backstory retention), <strong>constraint adherence</strong> (following negative rules without drifting), <strong>sycophancy resistance</strong>, and how well they handle dark, complex, or mature themes without preachiness or forced moralizing.</p>
+                    <p>Tested across 600 runs covering 12 narrative genres using the standardized system prompt harness below.</p>
                 </div>
 
                 <!-- Tested Genres Display -->
@@ -102,7 +100,7 @@
         <!-- 2. Visual Benchmark Charts Section (Artificial Analysis Style) -->
         <section class="benchmark-charts-section fade-in" id="charts">
             <div class="section-title-wrapper">
-                <h2>Comparative Benchmark Charts</h2>
+                <h2>Dimension Breakdown</h2>
                 <div class="chart-dimension-tabs" id="chart-dimension-tabs">
                     <button class="chart-tab-btn active" data-chart="all">All Dimensions</button>
                     <button class="chart-tab-btn" data-chart="logic">Logic & Reasoning</button>
@@ -110,7 +108,6 @@
                     <button class="chart-tab-btn" data-chart="flex">Flexibility</button>
                     <button class="chart-tab-btn" data-chart="knowledge">Knowledge Recall</button>
                 </div>
-                <span class="meta-tag">Side-by-Side Analysis</span>
             </div>
             
             <div class="benchmark-charts-grid">
@@ -121,7 +118,7 @@
                             <span class="chart-color-box logic-color"></span>
                             <h3>Logic & Reasoning</h3>
                         </div>
-                        <p class="chart-subtitle">Evaluated points · Higher is better</p>
+                        <p class="chart-subtitle">Higher is better</p>
                     </div>
                     <div class="chart-canvas-container" id="logic-chart-container">
                         <!-- Injected by JavaScript -->
@@ -135,7 +132,7 @@
                             <span class="chart-color-box prose-color"></span>
                             <h3>Prose & Tone Quality</h3>
                         </div>
-                        <p class="chart-subtitle">Evaluated points · Higher is better</p>
+                        <p class="chart-subtitle">Higher is better</p>
                     </div>
                     <div class="chart-canvas-container" id="prose-chart-container">
                         <!-- Injected by JavaScript -->
@@ -149,7 +146,7 @@
                             <span class="chart-color-box flex-color"></span>
                             <h3>Content Flexibility</h3>
                         </div>
-                        <p class="chart-subtitle">Evaluated points · Higher is better</p>
+                        <p class="chart-subtitle">Higher is better</p>
                     </div>
                     <div class="chart-canvas-container" id="flex-chart-container">
                         <!-- Injected by JavaScript -->
@@ -163,7 +160,7 @@
                             <span class="chart-color-box knowledge-color"></span>
                             <h3>Knowledge & Canon Recall</h3>
                         </div>
-                        <p class="chart-subtitle">Evaluated points · Higher is better</p>
+                        <p class="chart-subtitle">Higher is better</p>
                     </div>
                     <div class="chart-canvas-container" id="knowledge-chart-container">
                         <!-- Injected by JavaScript -->
@@ -175,7 +172,7 @@
         <!-- 3. Head-to-Head Comparison Matchup Tool -->
         <section class="matchup-section glass-card fade-in" id="matchup">
             <div class="section-title-wrapper">
-                <h2>Head-to-Head Model Matchup</h2>
+                <h2>Model Matchup</h2>
                 <div class="matchup-header-actions">
                     <button id="random-matchup-btn" class="action-pill-btn random-matchup-btn" title="Pit two random models against each other">
                         <svg class="dice-icon-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -189,7 +186,6 @@
                         <span class="btn-text">Surprise Me</span>
                         <div class="charge-bar"></div>
                     </button>
-                    <span class="meta-tag">Direct Delta Analysis</span>
                 </div>
             </div>
             <div class="matchup-controls">
@@ -214,8 +210,8 @@
             <a href="#quirks" class="leaderboard-quirk-banner" title="Jump to Model Quirks & Faults">
                 <div class="banner-left">
                     <div class="banner-text">
-                        <strong>Critical Model Realities & Quirks:</strong>
-                        <span>Gemini instruction following, Kimi CoT token tax & latency, ChatGPT 92% hallucination & Opus regression</span>
+                        <strong>Key Model Quirks:</strong>
+                        <span>Gemini instruction drift, Kimi CoT token tax & latency, ChatGPT 92% hallucination, and Opus regression</span>
                     </div>
                 </div>
                 <span class="banner-action">View Quirks ↓</span>
@@ -224,7 +220,7 @@
             <div class="section-header">
                 <div class="header-left">
                     <h2>Model Leaderboard</h2>
-                    <span class="model-count-badge" id="model-count-badge">17 Models Evaluated</span>
+                    <span class="model-count-badge" id="model-count-badge">17 Models</span>
                 </div>
                 <div class="header-right">
                     <div class="leaderboard-action-buttons">
@@ -282,8 +278,7 @@
         <!-- 5. Quirks & Critical Caveats Section -->
         <section class="quirks-section fade-in" id="quirks">
             <div class="section-title-wrapper">
-                <h2>Notable Quirks & Faults</h2>
-                <span class="meta-tag">Evaluator Notes</span>
+                <h2>Model Quirks & Faults</h2>
             </div>
             <div class="quirks-grid">
                 <div class="quirk-card glass-card danger" id="quirk-chatgpt">
@@ -300,7 +295,7 @@
                             <div class="meter-fill danger-fill" style="width: 92%;"></div>
                         </div>
                     </div>
-                    <p>Exhibits a 92% hallucination severity rate on creative benchmarks—meaning when it hallucinates (which is frequent on creative roleplay and multi-turn narratives), it hallucinates heavily: misreading canon, fabricating contradictory lore, and rigidly imposing incorrect narrative inferences. Yet, paradoxically, it remains the #1 model for pure literal context remembrance and needle recall accuracy (256k on Plus; 1M via API), with Gemini 3.6 Flash ranking #2 right behind it.</p>
+                    <p>When it hallucinates in creative writing and roleplay, it hallucinates heavily: misreading canon, fabricating contradictory lore, and forcing incorrect inferences (92% severity). Despite that, it holds the best literal needle retrieval and context retention (256k on Plus; 1M via API), with Gemini 3.6 Flash right behind it.</p>
                 </div>
                 
                 <div class="quirk-card glass-card gemini-theme" id="quirk-gemini">
@@ -317,7 +312,7 @@
                             <div class="meter-fill gemini-fill" style="width: 75%;"></div>
                         </div>
                     </div>
-                    <p>While formerly holding the #1 overall spot for prose and flexibility (now edged by Gemini 3.8 Flash), it actually has a bit of a problem with strict instruction following and constraint adherence. It also preserves baseline characterization too aggressively—characters often resist earned development after major events, remaining "rainbows and sunshine" despite trauma. Requires explicit anti-sycophancy prompts and instruction reinforcement.</p>
+                    <p>Has issues with instruction drift and negative constraint adherence. Characters also resist earned progression after major events, staying overly positive and friendly regardless of what happened in the scene. Needs explicit anti-sycophancy prompting.</p>
                 </div>
 
                 <div class="quirk-card glass-card warning" id="quirk-kimi">
@@ -334,7 +329,7 @@
                             <div class="meter-fill warning-fill" style="width: 80%;"></div>
                         </div>
                     </div>
-                    <p>Possessing elite causal logic (500, narrowly edged in raw puzzle-solving by GLM 5.3 at 510), Kimi comes with a steep Reasoning Token Tax: it eats significant context window space on internal Chain-of-Thought (CoT) tokens before producing prose. Furthermore, it thinks for a long time before streaming output, causing noticeable generation latency in interactive sessions alongside tightly constrained content flexibility (180).</p>
+                    <p>Very strong logic (500, just behind GLM 5.3 at 510), but has a heavy Chain-of-Thought token tax that eats up context before generating prose. Output streaming has high latency due to long reasoning times, and flexibility is strictly limited (180).</p>
                 </div>
 
                 <div class="quirk-card glass-card info" id="quirk-opus">
@@ -351,7 +346,7 @@
                             <div class="meter-fill info-fill" style="width: 60%;"></div>
                         </div>
                     </div>
-                    <p>Opus 5 ranks worse in logic (400) than 4.8 (480). It projects heavy biases onto characters and is quite dry in prose. 4.6 sits comfortably between them for prose, but 4.8 remains the logic king of the Anthropic lineup.</p>
+                    <p>Opus 5 drops in logic (400) compared to Opus 4.8 (480), with dry prose and biased characterization. Opus 4.6 sits between them for prose, but 4.8 is the strongest Anthropic model for logic.</p>
                 </div>
             </div>
         </section>
@@ -360,13 +355,11 @@
         <section class="harness-section fade-in" id="harness">
             <div class="section-title-wrapper">
                 <h2>System Instruction Harness</h2>
-                <span class="meta-tag">Standardized Prompt</span>
             </div>
             <div class="glass-card harness-content">
                 <div class="harness-header">
                     <div class="harness-title-area">
-                        <h3>Rules & Context</h3>
-                        <span class="badge-rules">Strict Evaluation Prompt</span>
+                        <h3>Evaluation Prompt & Rules</h3>
                     </div>
                     <div class="harness-actions">
                         <button id="toggle-expand-btn" class="secondary-btn" title="Expand / Minimize">
@@ -435,6 +428,6 @@
         </div>
     </footer>
 
-    <script src="app.js?v=v8"></script>
+    <script src="app.js?v=v9"></script>
 </body>
 </html>
