@@ -126,7 +126,7 @@ const modelsData = [
         logic: 380,
         prose: 300,
         flexibility: 250,
-        knowledge: 300,
+        knowledge: 344,
         context: "200k",
         desc: "Sits below Opus 4.6/5 in logic, stiffer prose."
     },
@@ -136,7 +136,7 @@ const modelsData = [
         logic: 360,
         prose: 300,
         flexibility: 330,
-        knowledge: 290,
+        knowledge: 342,
         context: "1M",
         desc: "Well-balanced overall baseline."
     },
@@ -156,7 +156,7 @@ const modelsData = [
         logic: 200,
         prose: 350,
         flexibility: 150,
-        knowledge: 250,
+        knowledge: 343,
         context: "1M",
         desc: "Capable prose styling, constrained flexibility."
     },
