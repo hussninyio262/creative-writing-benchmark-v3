@@ -84,9 +84,9 @@ const modelsData = [
         rank: 9,
         name: "DeepSeek v4",
         logic: 150,
-        prose: 400,
+        prose: 410,
         flexibility: 480,
-        knowledge: 270,
+        knowledge: 345,
         context: "1M",
         desc: "Great flexibility, lower logic consistency."
     },
